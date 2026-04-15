@@ -115,9 +115,9 @@ body {
 .lab-logo {
     position: absolute;
     top: 40%;
-    left: 80%;
+    left: 20%;
     transform: translate(-50%, -50%);
-    width: 400px;
+    width: 220px;
     height: auto;
 }
 @keyframes fadeIn {
@@ -383,6 +383,13 @@ body {
     padding: 1rem 1.2rem 1.2rem;
     max-height: 60vh;
     overflow-y: auto;
+}
+.popup-footer {
+    background: #FCFEF8;
+    padding: 0.8rem 1.2rem;
+    border-top: 1px solid #EFF3E8;
+    font-size: 0.75rem;
+    color: #6b8c80;
 }
 .popup-section {
     margin-bottom: 1rem;
