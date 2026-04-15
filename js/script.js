@@ -93,9 +93,10 @@
     // ---------- EVENTOS DE CLICK EN PRUEBAS ----------
     function clickHandler(e) {
         e.stopPropagation();
-        const raw = e.currentTarget.innerText.trim();
-        const testName = raw.split('\n')[0].trim();
-        showPopup(testName, e.clientX, e.clientY);
+        const testName = e.currentTarget.getAttribute('data-testname');
+        if (testName) {
+            showPopup(testName, e.clientX, e.clientY);
+        }
     }
 
     function attachClickToTestElements() {
@@ -160,7 +161,7 @@
                     const regex = new RegExp(`(${term.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')})`, "gi");
                     display = test.name.replace(regex, `<span class="highlight">$1</span>`);
                 }
-                html += `<div class="study-card"><i class="fas fa-vial"></i> ${display}</div>`;
+                html += `<div class="study-card" data-testname="${escapeHtml(test.name)}"><i class="fas fa-vial"></i> ${display}</div>`;
             });
             html += `</div></div>`;
         }
@@ -194,7 +195,7 @@
                         <div class="package-badge"><i class="fas fa-list-ul"></i> ${pkg.tests.length} pruebas</div>
                     </div>
                     <div class="package-studies-list">
-                        <ul>${pkg.tests.map(t => `<li><i class="fas fa-check-circle"></i> ${t}</li>`).join('')}</ul>
+                        <ul>${pkg.tests.map(t => `<li data-testname="${escapeHtml(t)}"><i class="fas fa-check-circle"></i> ${t}</li>`).join('')}</ul>
                     </div>
                     <div class="package-footer-note"><i class="fas fa-clock"></i> Requiere preparación según cada prueba individual.</div>
                 </div>
@@ -255,11 +256,16 @@
 
     tabs.forEach(btn => btn.addEventListener("click", () => switchTab(btn.getAttribute("data-tab"))));
 
+    // Debounce para búsqueda (evita renderizados excesivos)
+    let searchTimeout;
     const searchInput = document.getElementById("globalSearch");
     searchInput.addEventListener("input", (e) => {
-        currentSearch = e.target.value;
-        if (currentTab === "individual") renderIndividual(currentSearch);
-        else if (currentTab === "packages") renderPackages(currentSearch);
+        clearTimeout(searchTimeout);
+        searchTimeout = setTimeout(() => {
+            currentSearch = e.target.value;
+            if (currentTab === "individual") renderIndividual(currentSearch);
+            else if (currentTab === "packages") renderPackages(currentSearch);
+        }, 250); // Espera 250ms después de la última tecla
     });
 
     // ---------- INICIALIZACIÓN ----------
