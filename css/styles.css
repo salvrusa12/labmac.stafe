@@ -67,7 +67,7 @@ body {
     justify-content: center;
     gap: 12px;
     background: white;
-    padding: 1rem 1rem 0;
+    padding: 1rem 1rem 17px;
     box-shadow: 0 6px 14px rgba(0,0,0,0.02);
     position: sticky;
     top: 0;
@@ -509,6 +509,34 @@ footer {
     margin-top: 1rem;
     font-weight: 500;
 }
+.test-popup {
+    position: fixed;
+    z-index: 1001;
+    background: white;
+    border-radius: 28px;
+    box-shadow: 0 25px 40px -12px rgba(0,0,0,0.25);
+    max-width: 420px;
+    width: 90%;
+    border-top: 6px solid var(--primary);
+    overflow: hidden;
+
+    /* 👇 Nuevas propiedades para centrar */
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    
+    /* Para móviles muy pequeños */
+    max-height: 90vh;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Ajuste del cuerpo del popup para scroll interno */
+.popup-body {
+    padding: 1rem 1.2rem 1.2rem;
+    overflow-y: auto;
+    flex: 1;
+}
 
 @media (max-width: 1024px) {
     .container { padding: 1rem; }
@@ -532,4 +560,18 @@ footer {
     .lab-logo { display: none}
     .lab-logo_mobile {display: block; margin: 0 auto 0.3rem auto; max-width: 65%}
     .fa-flask { display: none; }
+}
+
+@media (max-width: 480px) {
+    .test-popup {
+        width: 95%;
+        max-width: 95%;
+        border-radius: 20px;
+    }
+    .popup-header h3 {
+        font-size: 1rem;
+    }
+    .popup-body {
+        padding: 0.8rem;
+    }
 }

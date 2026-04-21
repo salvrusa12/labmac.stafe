@@ -75,16 +75,14 @@
             `<li><i class="fas fa-circle" style="font-size:0.4rem; color:var(--secondary); margin-right:8px;"></i> ${item}</li>`
         ).join('');
         popupSampleType.innerHTML = details.sample || "Variable";
+
+        // Mostrar el popup y el overlay
         popup.style.display = "block";
         overlay.style.display = "block";
 
-        let left = x + 15, top = y - 10;
-        const rect = popup.getBoundingClientRect();
-        if (left + 420 > window.innerWidth) left = x - 420;
-        if (left < 10) left = 10;
-        if (top + rect.height > window.innerHeight) top = y - rect.height - 20;
-        popup.style.left = left + "px";
-        popup.style.top = top + "px";
+        // Eliminar cualquier left/top previo para que el CSS aplique el centrado
+        popup.style.left = "";
+        popup.style.top = "";
     }
 
     function hidePopup() {

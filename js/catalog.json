@@ -106,13 +106,14 @@
     },
     {
       "id": "2610210050",
-      "name": "BUN",
+      "name": "Nitrógeno Uréico en Sangre (BUN)",
       "sample": "Suero",
       "category": "Química Clínica",
       "cost": 110.37,
       "instructions": [
         "Ayuno de 8 a 12 horas.",
-        "Evitar exceso de proteínas 24 horas antes."
+        "Evitar exceso de proteínas 24 horas antes.",
+        "*Incluido al realizar Urea en suero"
       ]
     },
     {
