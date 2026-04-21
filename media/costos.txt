@@ -1,0 +1,155 @@
+2610210038	Glucosa	 $137.49 
+2610210058	Urea en suero	 $110.37 
+2610200008	Acido Urico en sangre	 $305.97 
+2610220021	Creatinina en suero	 $126.24 
+2610210055	Sodio serico	 $368.25 
+2610210051	Potasio serico	 $368.25 
+2610210010	Cloro serico	 $282.63 
+2610210063	Magnesio en Suero	 $195.21 
+2610210008	Calcio en suero	 $247.75 
+2610210036	Fosforo en suero	 $247.75 
+2610210002	Albumina en suero	 $282.51 
+2610210001	Alanina aminotransferasa (ALT - TGP)	 $188.11 
+2610210004	Aspartato aminotransferasa (AST - TGO)	 $180.20 
+2610210005	Bilirrubina directa	 $183.94 
+2610200004	Bilirrubina Total	 $197.09 
+2610210025	Deshidrogenasa lactica (LDH)	 $415.23 
+2610210033	Fosfata alcalina	 $187.71 
+2610210037	Gama glutamil transpeptidasa (GGT)	 $187.71 
+2610210054	Proteinas totales en suero	 $180.20 
+2610210060	Colesterol HDL	 $228.54 
+2610210061	Colesterol LDL	 $280.57 
+2610210059	Colesterol	 $150.15 
+2610210057	Trigliceridos	 $220.38 
+2610210003	Amilasa	 $324.06 
+2610210045	Lipasa en suero	 $277.77 
+2610210043	Hierro serico	 $253.80 
+2610210031	Ferritina	 $758.29 
+2610210018	Creatinina depuracion orina de 24 hr	 $472.99 
+2610210041	Hemoglobina glicosilada A1c	 $375.38 
+2610210017	CPK total (creatinfosfocinasa total)	 $549.99 
+2610130002	Biometria hematica completa	 $237.86 
+2610130011	Grupo sanguineo y Rh.	 $236.72 
+2610130018	Velocidad de sedimentacion globular (VSG)	 $253.18 
+2610130017	Recuento de Reticulocitos	 $180.20 
+2610150154	VDRL	 $165.17 
+2610150112	Anticuerpos anti VIH I y II (Presuntiva Ag/Acs.)	 $438.46 
+2610150062	Anticuerpos anti Hepatitis C (Prueba rápida)	 $828.96 
+2610150145	Proteina C reactiva (PCR) (Cualitativa)	 $215.63 
+2610150139	Factor Reumatoide IgM	 $685.15 
+2610150123	Antiestreptolisinas	 $487.68 
+2610150148	Reacciones febriles	 $679.43 
+2610150150	Rosa de bengala (Brucella)	 $240.25 
+2610220034	Examen general de orina	 $131.87 
+2610180009	Coproparasitoscopico 1 muestra	 $137.35 
+2610180010	Coproparasitoscopico 2 muestras	 $197.07 
+2610180011	Coproparasitoscopico 3 muestras	 $256.78 
+2610180008	Coprológico	 $330.34 
+2610180005	Azucares reductores en heces	 $237.13 
+2610180016	Sangre oculta en heces ( Inmunológico)	 $549.10 
+2610180002	Amiba en fresco	 $236.44 
+2610100045	Investigacion de plasmodium(gota gruesa)	 $308.71 
+2610160004	Citoquimico de líquido cefalorraquideo	 $990.07 
+2610160007	Citoquimico de líquidos	 $990.07 
+2610160001	Citologia de liquido ascitis (exudado)	 $1,592.45 
+2610160002	Citologia de liquido de dialisis peritoneal	 $1,592.45 
+2610160007	Citoquimico de líquidos	 $990.07 
+2610160006	Citoquimico de líquido sinovial	 $427.97 
+2610160005	Citoquimico de líquido pleural	 $427.97 
+2610110020	Tiempo de protrombina (TP)	 $266.71 
+2610110024	Tiempo de tromboplastina parcial (TTP)	 $256.28 
+2610110023	Tiempo de trombina (TT)	 $371.98 
+2610110016	Fibrinógeno	 $366.93 
+2610140035	T3 libre (triyodotironina libre)	 $384.75 
+2610140037	T3 total (triyodotironina total)	 $300.31 
+2610140038	T4 libre (tiroxina libre)	 $450.46 
+2610140039	T4 total (tiroxina total)	 $300.31 
+2610140018	Hormona estimulante de tiroides (TSH)	 $483.82 
+2610140019	Hormona foliculo estimulante FSH	 $498.84 
+2610140020	Hormona luteinizante (LH)	 $498.84 
+2610140010	Estradiol	 $405.41 
+2610200194	Progesterona	 $360.36 
+2610140031	Prolactina (PRL)	 $681.53 
+2610140041	Testosterona total	 $404.82 
+2610200001	17 alfa hidroxi progesterona (17 aohp4)	 $775.15 
+2610200023	Androstenediona	 $582.39 
+2610200100	Dehidroepiandrosterona sulfato (DHEAS)	 $654.97 
+2610200099	Dehidroepiandrosterona (DHEA)	 $621.56 
+2610140040	Testosterona libre	 $683.22 
+2610150141	Insulina determinacion	 $449.80 
+2610210014	Cortisol	 $404.82 
+2610170002	Antigeno CA 125	 $750.76 
+2610170004	Antigeno CA 19-9	 $900.94 
+2610200221	Vitamina D (25-Hidroxi)	 $721.97 
+2610170008	Antígeno Carcinoembrionario (ACE)	 $750.76 
+2610210016	CPK - MB (creatinfosfocinasa fraccion MB)	 $330.34 
+2610150144	Procalcitonina (PCT)	 $1,997.35 
+2610140001	Beta gonadotrofina corionica (HCG-B) (Cualitativa)	 $475.77 
+2610140002	Beta gonadotrofina corionica (HCG-B) (Cuantitativa)	 $528.62 
+2610200029	Anticuerpo anti-peroxidasa tiroidea	 $645.67 
+2610150103	Anticuerpos anti Tiroglobulina	 $810.83 
+2610150091	Anticuerpos anti Receptor de TSH	 $10,783.35 
+2610140028	AA Peptido citrulinado	 $1,858.14 
+2610150085	Anticuerpos anti Mitocondriales	 $659.97 
+2610150086	Anticuerpos anti Músculo liso	 $1,148.76 
+2610150023	Anticuerpos anti Cardiolipinas IgG e IgM	 $1,570.18 
+2610150051	Anticuerpos anti Glicoproteina IgG	 $806.18 
+2610200060	Anticuerpos Anti Glicoproteina IgM	 $2,424.48 
+2610150035	Anticuerpos anti Citoplasma de Neutrofilos (p-ANCA, c-ANCA)	 $1,231.27 
+2610150089	Anticuerpos anti Nucleares (ANA)	 $1,501.49 
+2610150037	Anticuerpos anti DNA (nativo) (de doble cadena)	 $750.76 
+2610150014	Anticuerpos anti Ag ""S"" hepatitis B (HBsAc) sericos	 $1,299.35 
+2610150012	Anticuerpos anti Ag ""Core"" hepatitis B Totales	 $765.79 
+2610150061	Anticuerpos anti Hepatitis C (Cuantitativa)	 $763.19 
+2610150043	Anticuerpos anti Epstein Barr cápside IgM (VCA IgM)	 $919.69 
+2610150042	Anticuerpos anti Epstein Barr cápside IgG (VCA IgG)	 $1,057.22 
+2610150033	Anticuerpos anti Citomegalovirus IgG e IgM	 $1,210.00 
+2610150095	Anticuerpos Anti Rubeola IgG	 $808.54 
+2610150096	Anticuerpos anti Rubeola IgM	 $493.66 
+2610200161	Inmunoglobulina E (IgE)	 $420.71 
+2610200162	Inmunoglobulina G (IgG)	 $450.46 
+2610200159	Inmunoglobulina A (IgA)	 $385.67 
+2610200163	Inmunoglobulina M (IgM)	 $450.46 
+2610200160	Inmunoglobulina D (IgD)	 $1,585.48 
+2610200106	Electroforesis de proteinas sericas	 $795.82 
+2610200219	Vitamina B12	 $501.62 
+2610200006	Acido Folico (folatos)	 $593.18 
+2610170010	Antigeno prostatico especifico total (PSA)	 $630.66 
+2610150132	Antigeno prostatico libre	 $600.62 
+2610210034	Fosfatasa acida total	 $603.67 
+2610210044	Indice de resistencia a la insulina (Indice HOMA)	 $423.99 
+2610110026	Troponin l	 $567.31 
+2610100016	Cultivo de Exudado Faringeo	 $891.27 
+2610100039	Cultivo Vaginal	 $1,224.14 
+2610100037	Cultivo Uretral	 $1,224.14 
+2610100018	Cultivo de Herida	 $891.27 
+2610100026	Cultivo Dermatofitos	 $671.32 
+2610100024	Cultivo de Secreción Bronquial	 $1,131.74 
+2610100061	Urocultivo	 $891.27 
+2610100039	Cultivo Vaginal	 $1,224.14 
+2610180018	Coprocultivo	 $891.27 
+2610100044	Hemocultivo aerobio/anaerobio	 $1,210.26 
+2610100044	Hemocultivo aerobio/anaerobio	 $1,210.26 
+2610100023	Cultivo de punta de cateter	 $1,299.05 
+2610100042	Espermocultivo	 $1,164.42 
+2610100020	Cultivo de Líquidos corporales	 $891.27 
+2610100020	Cultivo de Líquidos corporales	 $891.27 
+2610100040	Cultivo Varios	 $1,224.14 
+2610100020	Cultivo de Líquidos corporales	 $891.27 
+2610100040	Cultivo Varios	 $1,224.14 
+2610100035	Cultivo otico	 $891.27 
+2610100024	Cultivo de Secreción Bronquial	 $1,131.74 
+2610190053	Quimica sanguinea 3 elementos	 $332.19 
+2610190058	Quimica sanguinea 6 elementos	 $518.21 
+2610190064	Quimica sanguinea 27 elementos	 $2,508.08 
+2610190078	Quimica Sanguinea 35 elementos	 $2,010.66 
+2610210039	Glucosa post prandial	 $183.94 
+2610190025	Perfil hepatico	 $597.93 
+2610210027	Electrolitos 3	 $557.08 
+2610210030	Electrolitos 6	 $655.89 
+2610190111	Perfil de Hierro	 $928.59 
+2610110025	Tiempos de coagulacion	 $278.00 
+2610190011	Perfil de drogas en orina 3	 $982.07 
+2610190045	Perfil Tiroideo	 $1,179.58 
+2610190024	Perfil ginecologico	 $1,679.47 
+2610210022	Curva de tolerancia a la glucosa 3 horas	 $1,162.36 

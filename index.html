@@ -19,7 +19,7 @@
         <h1><i class="fas fa-flask"></i> Laboratorio MAC Santa Fe</h1>
         <h2>Catálogo de estudios clínicos</h2>
         <img src="media/img/logo_mac_bueno.png" alt="Imagen de laboratorio clínico" class="lab-logo">
-        <div class="hero-sub">Catálogo oficial · Estudios con ID, indicaciones y tipo de muestra</div>
+        <div class="hero-sub">Catálogo oficial · Estudios con ID, indicaciones, tipo de muestra y costo</div>
         <div class="badge-info"><i class="fas fa-microscope"></i> Haz clic en cualquier prueba para ver su ficha detallada</div>
     </div>
 
@@ -69,6 +69,10 @@
                 <p><span id="popupCatalogId" class="badge-id"></span></p>
             </div>
             <div class="popup-section">
+                <strong><i class="fas fa-dollar-sign"></i> Costo</strong>
+                <p><span id="popupCost" class="badge-id"></span></p>
+            </div>
+            <div class="popup-section">
                 <strong><i class="fas fa-list-alt"></i> Indicaciones para el paciente</strong>
                 <ul id="popupInstructions"></ul>
             </div>
@@ -83,7 +87,6 @@
     </div>
 
     <!-- Scripts -->
-    <script src="js/data.js"></script>
     <script src="js/script.js"></script>
 </body>
 </html>
