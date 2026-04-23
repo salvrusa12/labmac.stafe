@@ -295,7 +295,7 @@ body {
 .package-name {
     font-size: 1.4rem;
     font-weight: 800;
-    color: #1c4e47;
+    color: #5b6f14;
     display: flex;
     align-items: center;
     gap: 10px;
@@ -336,6 +336,7 @@ body {
     transition: background 0.1s;
     border-radius: 12px;
     padding-left: 6px;
+    cursor: pointer;
 }
 .package-studies-list li:hover {
     background: #F0F9EA;
@@ -408,6 +409,15 @@ body {
     max-height: 60vh;
     overflow-y: auto;
 }
+
+#popupDescription {
+    font-size: 0.9rem;
+    color: #577a6e;
+    line-height: 1.4;
+    text-align: justify;
+    font-weight: 700;
+}
+
 .popup-footer {
     background: #FCFEF8;
     padding: 0.8rem 1.2rem;
@@ -604,7 +614,7 @@ footer {
 /* Evita que el cursor de mano herede el de la tarjeta en elementos internos no cliqueables */
 .package-card .package-cost,
 .package-card .package-footer-note {
-    cursor: default;
+    cursor: pointer;
 }
 
 @media (max-width: 1024px) {

@@ -1309,6 +1309,7 @@
     {
       "id": "2010110369",
       "name": "Check Up Qs 6 Elementos",
+      "description": "Chequeo básico que incluye biometría hemática, glucosa, urea, creatinina, ácido úrico, colesterol, triglicéridos y examen de orina. Ideal para evaluación inicial de salud general.",
       "tests": [
         "Biometría Hemática",
         "Glucosa",
@@ -1328,6 +1329,7 @@
     {
       "id": "2010110370",
       "name": "Check Up Qs 15 Elementos",
+      "description": "Evaluación ampliada de salud: añade perfil hepático, electrolitos y proteínas. Recomendado para chequeo periódico completo.",
       "tests": [
         "Biometría Hemática",
         "Glucosa",
@@ -1356,6 +1358,7 @@
     {
       "id": "2010110371",
       "name": "Check Up Qs 35 Elementos",
+      "description": "Evaluación avanzada del estado general que revisa corazón, riñones, hígado, metabolismo, electrolitos y páncreas, ideal como chequeo exhaustivo.",
       "tests": [
         "Biometría Hemática",
         "Glucosa",
@@ -1404,6 +1407,7 @@
     {
       "id": "2610190053",
       "name": "Química Sanguínea 3 Elementos",
+      "description": "Perfil básico de función renal y glucosa: glucosa, urea y creatinina. Útil para tamizaje rápido.",
       "tests": [
         "Glucosa",
         "Urea",
@@ -1417,6 +1421,7 @@
     {
       "id": "2610190058",
       "name": "Química Sanguínea 6 Elementos",
+      "description": "Perfil metabólico de 6 pruebas que incluye lípidos básicos y ácido úrico. Recomendado para evaluación cardiovascular y renal.",
       "tests": [
         "Glucosa",
         "Urea",
@@ -1433,6 +1438,7 @@
     {
       "id": null,
       "name": "Química Sanguínea 15 Elementos",
+      "description": "Perfil completo de 15 parámetros: función hepática, renal, electrolitos y lípidos. Ideal para chequeo general de rutina.",
       "tests": [
         "Glucosa",
         "Urea",
@@ -1458,6 +1464,7 @@
     {
       "id": "2610190064",
       "name": "Química Sanguínea 27 Elementos",
+      "description": "Evaluación metabólica extensa: 27 parámetros que incluyen perfil lipídico completo, electrolitos, minerales y enzimas hepáticas.",
       "tests": [
         "Glucosa",
         "Urea",
@@ -1495,6 +1502,7 @@
     {
       "id": "2610190078",
       "name": "Química Sanguínea 35 Elementos",
+      "description": "Panel sanguíneo más completo: añade enzimas pancreáticas, CPK y marcadores avanzados. Perfecto para diagnóstico preciso.",
       "tests": [
         "Glucosa",
         "Urea",
@@ -1540,6 +1548,7 @@
     {
       "id": "2610210027",
       "name": "Electrolitos Séricos de 3",
+      "description": "Medición de sodio, potasio y cloro. Útil para evaluar desequilibrios hidroelectrolíticos y ácido-base.",
       "tests": [
         "Sodio",
         "Potasio",
@@ -1553,6 +1562,7 @@
     {
       "id": "2610210030",
       "name": "Electrolitos Séricos de 6",
+      "description": "Panel completo de electrolitos y minerales: sodio, potasio, cloro, calcio, magnesio y fósforo. Ayuda en trastornos renales y metabólicos.",
       "tests": [
         "Sodio",
         "Potasio",
@@ -1569,6 +1579,7 @@
     {
       "id": "2610190053",
       "name": "Perfil de Lípidos",
+      "description": "Perfil lipídico completo: colesterol total, HDL, LDL, VLDL, triglicéridos, índice aterogénico y relación LDL/HDL. Clave para riesgo cardiovascular.",
       "tests": [
         "Colesterol Total",
         "Colesterol HDL",
@@ -1587,6 +1598,7 @@
     {
       "id": "2610190025",
       "name": "Perfil Hepático",
+      "description": "Evaluación completa del hígado: enzimas, bilirrubinas, proteínas totales y relación albúmina/globulina. Requiere ayuno y evitar alcohol.",
       "tests": [
         "Albúmina",
         "Alanina Aminotransferasa ALT",
@@ -1610,6 +1622,7 @@
     {
       "id": "2610190111",
       "name": "Perfil de Hierro",
+      "description": "Estudio del metabolismo del hierro: hierro sérico, ferritina, UIBC, TIBC y saturación de transferrina. Diagnóstico de anemia y sobrecarga de hierro.",
       "tests": [
         "Hierro",
         "Ferritina",
@@ -1626,6 +1639,7 @@
     {
       "id": "2610190045",
       "name": "Perfil Tiroideo",
+      "description": "Panel completo de tiroides: TSH, T3 total y libre, T4 total y libre, e índices. Tomar muestra antes de medicación.",
       "tests": [
         "Hormona Estimulante De La Tiroides TSH",
         "T3 Total",
@@ -1644,6 +1658,7 @@
     {
       "id": "2610190024",
       "name": "Perfil Ginecológico",
+      "description": "Evaluación hormonal femenina: FSH, LH, estradiol, progesterona, prolactina y testosterona total. Ayuno para prolactina y progesterona.",
       "tests": [
         "FSH",
         "LH",
@@ -1661,6 +1676,7 @@
     {
       "id": "2610190005",
       "name": "Perfil de Andrógenos",
+      "description": "Panel de hormonas androgénicas: 17-alfa hidroxiprogesterona, androstenediona, DHEA, DHEAS y testosterona libre/total. Muestra matutina.",
       "tests": [
         "17‑Alfa Hidroxiprogesterona",
         "Androstenediona",
@@ -1677,6 +1693,7 @@
     {
       "id": "2610190040",
       "name": "Perfil Reumático",
+      "description": "Estudio para enfermedades reumáticas: PCR cuantitativa, ácido úrico, factor reumatoide, VSG, biometría hemática y antiestreptolisinas.",
       "tests": [
         "Proteína C Reactiva PCR Cuantitativa",
         "Ácido Úrico",
@@ -1693,6 +1710,7 @@
     {
       "id": null,
       "name": "Perfil Control De Diabetes",
+      "description": "Seguimiento para diabetes: glucosa en ayuno, hemoglobina glicosilada y examen general de orina. Útil para monitoreo glucémico.",
       "tests": [
         "Glucosa",
         "Hemoglobina Glicosilada",
@@ -1707,6 +1725,7 @@
     {
       "id": "2610210020",
       "name": "Curva de Tolerancia de Glucosa 2 H",
+      "description": "Prueba de tolerancia a la glucosa de 2 horas (basal, 1h, 2h). Diagnóstico de diabetes gestacional y resistencia a la insulina.",
       "tests": [
         "Glucosa Basal",
         "Glucosa 1h",
@@ -1722,6 +1741,7 @@
     {
       "id": "2610210022",
       "name": "Curva de Tolerancia de Glucosa 3 H",
+      "description": "Curva de glucosa de 3 horas (basal, 1h, 2h, 3h). Útil para diagnóstico de diabetes y resistencia insulínica.",
       "tests": [
         "Glucosa Basal",
         "Glucosa 1h",
@@ -1737,6 +1757,7 @@
     {
       "id": "2610190112",
       "name": "Enzimas Pancreáticas",
+      "description": "Medición de amilasa y lipasa séricas. Clave en el diagnóstico de pancreatitis y otras enfermedades pancreáticas.",
       "tests": [
         "Amilasa",
         "Lipasa"
@@ -1749,6 +1770,7 @@
     {
       "id": "2610110025",
       "name": "Tiempos de Coagulación",
+      "description": "Estudio de coagulación: TP, INR y TPTa. Necesario antes de cirugías o en pacientes con anticoagulantes.",
       "tests": [
         "Tiempo De Protrombina TP",
         "INR",
@@ -1763,6 +1785,7 @@
     {
       "id": "2610190112",
       "name": "Preoperatorios",
+      "description": "Panel prequirúrgico: biometría hemática, glucosa, urea, creatinina, grupo sanguíneo y tiempos de coagulación. Ayuno de 8-12 horas.",
       "tests": [
         "Biometría Hemática",
         "Glucosa",
@@ -1782,6 +1805,7 @@
     {
       "id": "2610200266",
       "name": "Anticuerpos Anti Tiroideos",
+      "description": "Detección de autoanticuerpos tiroideos: anti-TPO y anti-tiroglobulina. Ayuda en diagnóstico de tiroiditis de Hashimoto.",
       "tests": [
         "Anticuerpo Anti Peroxidasa Tiroidea TPO",
         "Anticuerpos Anti Tiroglobulina TG"
@@ -1793,7 +1817,8 @@
     },
     {
       "id": "2610190011",
-      "name": "Antidoping De 3",
+      "name": "Antidoping de 3",
+      "description": "Detección de 3 drogas de abuso en orina: anfetaminas, cocaína y cannabinoides. Muestra matutina preferente.",
       "tests": [
         "Anfetaminas",
         "Cocaína",
@@ -1807,7 +1832,8 @@
     },
     {
       "id": "2610190011",
-      "name": "Antidoping De 5",
+      "name": "Antidoping de 5",
+      "description": "Detección de 5 drogas: anfetaminas, benzodiacepinas, cocaína, metanfetaminas y cannabinoides. Útil en cribado laboral.",
       "tests": [
         "Anfetaminas",
         "Benzodiacepinas",
@@ -1824,6 +1850,7 @@
     {
       "id": "2610200227",
       "name": "Tamiz Neonatal Ampliado",
+      "description": "Tamiz metabólico neonatal ampliado. Se realiza a recién nacidos entre el 3er y 5to día de vida mediante sangre del talón.",
       "tests": [
         "Tamiz Neonatal Ampliado"
       ],

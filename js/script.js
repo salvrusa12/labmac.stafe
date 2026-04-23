@@ -63,29 +63,49 @@
 }
 
 function showPackagePopup(pkg, event) {
-    // Evita que el clic se propague a otros elementos (por si hay listeners anidados)
     if (event) event.stopPropagation();
-    
-    // Rellena el popup con los datos del paquete
     popupTestName.innerText = pkg.name;
     popupCatalogId.innerHTML = pkg.id || "No disponible";
     
-    // Costo del paquete (usa getPackageCost para manejar null)
     const packageCost = getPackageCost(pkg);
     popupCost.innerText = typeof packageCost === 'number' ? `$${packageCost.toFixed(2)}` : packageCost;
     
-    // Instrucciones / descripción general del paquete
+    // ---- DESCRIPCIÓN (nueva) ----
+    const descriptionElement = document.getElementById("popupDescription");
+    if (descriptionElement) {
+        descriptionElement.innerHTML = escapeHtml(pkg.description || "Sin descripción adicional.");
+    } else {
+        // Si no existe el elemento en el DOM, lo creamos dinámicamente (por si no se editó el HTML)
+        const popupBody = document.querySelector("#testPopup .popup-body");
+        if (popupBody && !document.getElementById("popupDescriptionSection")) {
+            const descSection = document.createElement("div");
+            descSection.className = "popup-section";
+            descSection.id = "popupDescriptionSection";
+            descSection.innerHTML = `<strong><i class="fas fa-info-circle"></i> Descripción del paquete</strong>
+                                      <p id="popupDescription">${escapeHtml(pkg.description || "Sin descripción adicional.")}</p>`;
+            // Insertar después de la sección de ID (primer .popup-section)
+            const firstSection = popupBody.querySelector(".popup-section");
+            if (firstSection) {
+                popupBody.insertBefore(descSection, firstSection.nextSibling);
+            } else {
+                popupBody.appendChild(descSection);
+            }
+        } else if (document.getElementById("popupDescription")) {
+            document.getElementById("popupDescription").innerHTML = escapeHtml(pkg.description || "Sin descripción adicional.");
+        }
+    }
+    
+    // Instrucciones
     const instructions = pkg.instructions && pkg.instructions.length
         ? pkg.instructions
         : ["Paquete de estudios clínicos.", "Consulte los requisitos de cada prueba incluida."];
     popupInstructions.innerHTML = instructions.map(item => 
-        `<li><i class="fas fa-circle" style="font-size:0.4rem; color:var(--secondary); margin-right:8px;"></i> ${item}</li>`
+        `<li><i class="fas fa-circle" style="font-size:0.4rem; color:var(--secondary); margin-right:8px;"></i> ${escapeHtml(item)}</li>`
     ).join('');
     
-    // Tipo de muestra (para paquete es genérico)
+    // Tipo de muestra
     popupSampleType.innerHTML = "Múltiples tipos (según pruebas incluidas)";
     
-    // Mostrar popup
     popup.style.display = "block";
     overlay.style.display = "block";
     popup.style.left = "";
@@ -231,7 +251,7 @@ function renderPackages(search = "") {
                     <div class="package-badge"><i class="fas fa-list-ul"></i> ${pkg.tests.length} pruebas</div>
                 </div>
                 <div class="package-studies-list">
-                    <ul>${pkg.tests.map(t => `<li data-testname="${escapeHtml(t)}"><i class="fas fa-check-circle"></i> ${t}</li>`).join('')}</ul>
+                    <ul>${pkg.tests.map(t => `<li><i class="fas fa-check-circle"></i> ${t}</li>`).join('')}</ul>
                 </div>
                 <div class="package-cost"> ${typeof packageCost === 'number' ? '$'+packageCost.toFixed(2) : packageCost}</div>
                 <div class="package-footer-note"><i class="fas fa-clock"></i> Requiere preparación según cada prueba individual.</div>
@@ -242,7 +262,8 @@ function renderPackages(search = "") {
     document.getElementById("statsPackages").innerHTML = `📦 ${filtered.length} paquetes disponibles.`;
     
     // Adjunta clics a los estudios individuales (dentro de los paquetes)
-    attachClickToTestElements();
+
+    //attachClickToTestElements(); ACTIVAR SI SE DESEA QUE LOS CLICS EN LOS ESTUDIOS DENTRO DE LOS PAQUETES MUESTREN EL POPUP DE ESE ESTUDIO.
 }
 
     function renderInstructions() {
@@ -323,11 +344,6 @@ function renderPackages(search = "") {
     const packagesContainer = document.getElementById("packagesGridContainer");
     if (packagesContainer) {
         packagesContainer.addEventListener('click', (e) => {
-            // Si el clic ocurrió dentro de un <li> que tiene data-testname (estudio individual)
-            const testLi = e.target.closest('li[data-testname]');
-            if (testLi) return; // No hacer nada, el clic ya será manejado por attachClickToTestElements
-            
-            // Buscar la tarjeta de paquete más cercana
             const packageCard = e.target.closest('.package-card');
             if (packageCard) {
                 const packageName = packageCard.getAttribute('data-package-name');
