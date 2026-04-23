@@ -74,7 +74,7 @@
         for (let [key, value] of testMap.entries()) {
             if (normalized.includes(key) || key.includes(normalized)) return value;
         }
-        return { id: "No disponible", name: testName, sample: "Variable", category: "General", cost: null, instructions: [] };
+        return { id: "No disponible", name: testName, sample: "Variable", category: "General", cost: null, instructions: [], description: "Sin descripción disponible." };
     }
 
     function getInstructions(testName) {
@@ -89,6 +89,27 @@
         return "Cotizar en caja";
     }
 
+    function ensureDescriptionSection() {
+        let descSection = document.getElementById("popupDescriptionSection");
+        if (!descSection) {
+            const popupBody = document.querySelector("#testPopup .popup-body");
+            if (popupBody) {
+                descSection = document.createElement("div");
+                descSection.className = "popup-section";
+                descSection.id = "popupDescriptionSection";
+                descSection.innerHTML = `<strong id="popupDescriptionTitle"><i class="fas fa-info-circle"></i> Descripción</strong>
+                                         <p id="popupDescription"></p>`;
+                const firstSection = popupBody.querySelector(".popup-section");
+                if (firstSection) {
+                    popupBody.insertBefore(descSection, firstSection.nextSibling);
+                } else {
+                    popupBody.appendChild(descSection);
+                }
+            }
+        }
+        return descSection;
+    }
+
     function showPackagePopup(pkg, event) {
         if (event) event.stopPropagation();
         popupTestName.innerText = pkg.name;
@@ -96,24 +117,11 @@
         const packageCost = getPackageCost(pkg);
         popupCost.innerText = formatCost(packageCost);
         
+        ensureDescriptionSection();
+        const descriptionTitle = document.getElementById("popupDescriptionTitle");
         const descriptionElement = document.getElementById("popupDescription");
-        if (descriptionElement) {
-            descriptionElement.innerHTML = escapeHtml(pkg.description || "Sin descripción adicional.");
-        } else {
-            const popupBody = document.querySelector("#testPopup .popup-body");
-            if (popupBody && !document.getElementById("popupDescriptionSection")) {
-                const descSection = document.createElement("div");
-                descSection.className = "popup-section";
-                descSection.id = "popupDescriptionSection";
-                descSection.innerHTML = `<strong><i class="fas fa-info-circle"></i> Descripción del paquete</strong>
-                                          <p id="popupDescription">${escapeHtml(pkg.description || "Sin descripción adicional.")}</p>`;
-                const firstSection = popupBody.querySelector(".popup-section");
-                if (firstSection) popupBody.insertBefore(descSection, firstSection.nextSibling);
-                else popupBody.appendChild(descSection);
-            } else if (document.getElementById("popupDescription")) {
-                document.getElementById("popupDescription").innerHTML = escapeHtml(pkg.description || "Sin descripción adicional.");
-            }
-        }
+        if (descriptionTitle) descriptionTitle.innerHTML = '<i class="fas fa-info-circle"></i> Descripción del paquete';
+        if (descriptionElement) descriptionElement.innerHTML = escapeHtml(pkg.description || "Sin descripción adicional.");
         
         const instructions = pkg.instructions && pkg.instructions.length
             ? pkg.instructions
@@ -121,8 +129,10 @@
         popupInstructions.innerHTML = instructions.map(item => 
             `<li><i class="fas fa-circle" style="font-size:0.4rem; color:var(--secondary); margin-right:8px;"></i> ${escapeHtml(item)}</li>`
         ).join('');
+
+        // ✅ Mostrar el tipo de muestra del paquete (campo "sample")
+        popupSampleType.innerHTML = pkg.sample || "Variable según pruebas incluidas";
         
-        popupSampleType.innerHTML = "Múltiples tipos (según pruebas incluidas)";
         popup.style.display = "block";
         overlay.style.display = "block";
         popup.style.left = "";
@@ -134,11 +144,19 @@
         popupTestName.innerText = testName;
         popupCatalogId.innerHTML = details.id || "No disponible";
         popupCost.innerText = formatCost(details.cost);
+        
+        ensureDescriptionSection();
+        const descriptionTitle = document.getElementById("popupDescriptionTitle");
+        const descriptionElement = document.getElementById("popupDescription");
+        if (descriptionTitle) descriptionTitle.innerHTML = '<i class="fas fa-info-circle"></i> Descripción del estudio';
+        if (descriptionElement) descriptionElement.innerHTML = escapeHtml(details.description || "Sin descripción disponible.");
+        
         const instructions = getInstructions(testName);
         popupInstructions.innerHTML = instructions.map(item => 
-            `<li><i class="fas fa-circle" style="font-size:0.4rem; color:var(--secondary); margin-right:8px;"></i> ${item}</li>`
+            `<li><i class="fas fa-circle" style="font-size:0.4rem; color:var(--secondary); margin-right:8px;"></i> ${escapeHtml(item)}</li>`
         ).join('');
         popupSampleType.innerHTML = details.sample || "Variable";
+        
         popup.style.display = "block";
         overlay.style.display = "block";
         popup.style.left = "";
@@ -275,7 +293,7 @@
                 <div class="package-card" data-package-name="${escapeHtml(pkg.name)}">
                     <div class="package-header">
                         <div class="package-name">
-                            <i class="fas fa-cube"></i> ${pkg.name}
+                            <i class="fa-solid fa-vials"></i> ${pkg.name}
                         </div>
                         <div class="package-badge"><i class="fas fa-list-ul"></i> ${pkg.tests.length} pruebas</div>
                     </div>
@@ -378,7 +396,7 @@
         });
     }
 
-    // ---------- BOTÓN VOLVER ARRIBA ----------
+    // Botón volver arriba
     const backToTopBtn = document.getElementById('backToTopBtn');
     if (backToTopBtn) {
         window.addEventListener('scroll', () => {

@@ -431,7 +431,7 @@ body {
 }
 
 footer .phone {
-    margin-left: 70%;
+    margin-left: -70%;
     margin-bottom: -3%;
     font-weight: bold;
     font-size: 1.5rem;
@@ -586,6 +586,10 @@ footer {
     margin-bottom: -65px;
 }
 
+#ext_price {
+    font-size: 1.00rem;
+}
+
 .phone {
     margin-top: 12px;
     font-size: 1rem;
@@ -670,7 +674,7 @@ footer {
     .lab-logo {display: block; transform: translate(-120%, -50%); max-width: 15%}
     .lab-logo_mobile {display: none}
     .fa-flask { display: none; }
-    footer .phone {display: contents;}
+    footer .phone {display: contents; font-size: 1.3rem;}
     .info-note-box {margin-bottom: -50px;}
 }
 
