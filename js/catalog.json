@@ -865,7 +865,7 @@
       "name": "Hepatitis B Prueba Rápida",
       "sample": "Suero",
       "category": "Serología y Pruebas Rápidas",
-      "cost": 1160.00,
+      "cost": 800.00,
       "description": "Detección rápida del antígeno de superficie del virus de Hepatitis B (HBsAg). Tamizaje para infección activa.",
       "instructions": [
         "No requiere ayuno."
@@ -1820,7 +1820,7 @@
         "Dehidroepiandrosterona Sulfato DHEAS",
         "Testosterona Libre Y Total"
       ],
-      "cost": 4435.00,
+      "cost": 1300.00,
       "sample": "Suero",
       "instructions": [
         "Ayuno de 8 horas.",
