@@ -765,7 +765,7 @@
       "name": "Anticuerpos Anti‑Receptor TSH TRAb",
       "sample": "Suero",
       "category": "Inmunología / Autoinmunidad",
-      "cost": null,
+      "cost": 3005.00,
       "description": "Autoanticuerpo estimulante del receptor de TSH, característico de la enfermedad de Graves (hipertiroidismo autoinmune).",
       "instructions": [
         "Ayuno de 8 horas."
@@ -1562,7 +1562,7 @@
       ]
     },
     {
-      "id": null,
+      "id": 2610190125,
       "name": "Química Sanguínea 15 Elementos",
       "description": "Perfil completo de 15 parámetros: función hepática, renal, electrolitos y lípidos. Ideal para chequeo general de rutina.",
       "tests": [
@@ -1582,7 +1582,7 @@
         "Potasio",
         "Cloro"
       ],
-      "cost": null,
+      "cost": 1245.00,
       "sample": "Suero",
       "instructions": [
         "Ayuno de 8 a 12 horas."
@@ -1621,7 +1621,7 @@
         "Colesterol Total",
         "Triglicéridos"
       ],
-      "cost": 2508.08,
+      "cost": 2015.00,
       "sample": "Suero",
       "instructions": [
         "Ayuno de 8 a 12 horas."
@@ -1668,7 +1668,7 @@
         "Deshidrogenasa Láctica LDH",
         "Hierro"
       ],
-      "cost": 2010.66,
+      "cost": 2510.00,
       "sample": "Suero",
       "instructions": [
         "Ayuno de 8 a 12 horas."
@@ -1720,7 +1720,7 @@
         "Índice Aterogénico",
         "Relación LDL/HDL"
       ],
-      "cost": null,
+      "cost": 775.00,
       "sample": "Suero",
       "instructions": [
         "Ayuno estricto de 12 horas.",
@@ -1854,7 +1854,7 @@
         "Hemoglobina Glicosilada",
         "Examen General De Orina"
       ],
-      "cost": null,
+      "cost": 1200.00,
       "sample": "Suero, Sangre Total y Orina",
       "instructions": [
         "Ayuno de 8 horas para glucosa.",
@@ -1903,7 +1903,7 @@
         "Amilasa",
         "Lipasa"
       ],
-      "cost": null,
+      "cost": 460.00,
       "sample": "Suero",
       "instructions": [
         "Ayuno de 8 a 12 horas."

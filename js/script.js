@@ -265,12 +265,18 @@
     }
 
     function calculateTotalCost() {
-        let total = 0;
-        selectedTests.forEach(studyName => {
+        let sum = 0;
+        let hasNullCost = false;
+        for (let studyName of selectedTests) {
             const cost = getStudyCost(studyName);
-            if (typeof cost === 'number') total += cost;
-        });
-        return total;
+            if (typeof cost === 'number') {
+                sum += cost;
+            } else {
+                hasNullCost = true;
+            }
+        }
+        if (hasNullCost) return null;
+        return sum;
     }
 
     function updateTotalDisplay() {
