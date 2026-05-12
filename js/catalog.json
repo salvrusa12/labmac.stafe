@@ -1442,7 +1442,7 @@
         "Examen General De Orina"
       ],
       "cost": 705.00,
-      "sample": "Sangre Total, Suero y Orina",
+      "sample": "Suero, Sangre Total y Orina",
       "instructions": [
         "Ayuno de 8 a 12 horas.",
         "Seguir las indicaciones particulares de cada prueba."
@@ -1472,7 +1472,7 @@
         "Examen General De Orina"
       ],
       "cost": 850.00,
-      "sample": "Sangre Total, Suero y Orina",
+      "sample": "Suero, Sangre Total y Orina",
       "instructions": [
         "Ayuno de 8 a 12 horas.",
         "Recolectar primera orina de la mañana para el EGO."
@@ -1521,8 +1521,8 @@
         "Hierro",
         "Examen General De Orina"
       ],
-      "cost": 1309.00,
-      "sample": "Sangre Total y Orina",
+      "cost": 1095.00,
+      "sample": "Suero, Sangre Total y Orina",
       "instructions": [
         "Ayuno de 8 a 12 horas.",
         "Recolectar primera orina de la mañana."
