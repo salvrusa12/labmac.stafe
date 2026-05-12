@@ -28,6 +28,38 @@
     const appointmentDiv = document.getElementById("appointmentTab");
     const searchInput = document.getElementById("globalSearch");
 
+    
+    
+    
+        // ---------- NORMALIZACIÓN DE ACENTOS ----------
+    function normalizeString(str) {
+        if (!str) return '';
+        return str.toLowerCase()
+            .normalize("NFD").replace(/[\u0300-\u036f]/g, "")  // Elimina acentos
+            .replace(/ñ/g, 'n')                                // Normaliza ñ
+            .replace(/ü/g, 'u');                               // Normaliza ü
+    }
+
+    function createDiacriticRegex(searchTerm) {
+        if (!searchTerm) return null;
+        const map = {
+            'a': '[aáä]', 'e': '[eéë]', 'i': '[iíï]', 'o': '[oóö]', 'u': '[uúü]',
+            'n': '[nñ]', 'c': '[cç]'
+        };
+        const pattern = searchTerm.toLowerCase().split('').map(ch => map[ch] || ch).join('');
+        return new RegExp(`(${pattern})`, 'gi');
+    }
+
+    function highlightText(text, searchTerm) {
+        if (!searchTerm || !text) return escapeHtml(text);
+        const regex = createDiacriticRegex(searchTerm);
+        if (!regex) return escapeHtml(text);
+        const escapedText = escapeHtml(text);
+        return escapedText.replace(regex, '<span class="highlight">$1</span>');
+    }
+    
+    
+    
     //Normalizar tipos de muestra ----------
     function normalizeSampleTypes(sampleStr) {
         if (!sampleStr) return [];
@@ -376,9 +408,12 @@
     function renderIndividual(search = "") {
         currentSearch = search;
         const container = document.getElementById("individualStudiesContainer");
-        const term = search.trim().toLowerCase();
+        const term = search.trim();
         let filtered = [...catalogData.individualTests];
-        if (term) filtered = filtered.filter(t => t.name.toLowerCase().includes(term));
+        if (term) {
+            const normTerm = normalizeString(term);
+            filtered = filtered.filter(t => normalizeString(t.name).includes(normTerm));
+        }
         if (selectedCategory) filtered = filtered.filter(t => t.category === selectedCategory);
         if (filtered.length === 0) {
             container.innerHTML = `<div class="no-result"><i class="fas fa-search-minus"></i> No se encontraron estudios con los filtros actuales.</div>`;
@@ -391,17 +426,13 @@
         for (const [cat, tests] of Object.entries(grouped).sort()) {
             html += `<div class="category-section"><div class="category-title">${cat}</div><div class="studies-grid">`;
             tests.forEach(test => {
-                let display = test.name;
-                if (term) {
-                    const regex = new RegExp(`(${term.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')})`, "gi");
-                    display = test.name.replace(regex, `<span class="highlight">$1</span>`);
-                }
+                const displayName = term ? highlightText(test.name, term) : escapeHtml(test.name);
                 html += `<div class="study-card" data-testname="${escapeHtml(test.name)}">
                             <i class="fas fa-vial"></i> 
-                            <span>${display}</span>
+                            <span>${displayName}</span>
                             <span class="test-cost">${formatCost(test.cost)}</span>
                             <button class="btn-add-cart" data-testname="${escapeHtml(test.name)}"><i class="fas fa-plus-circle"></i> Cotizar</button>
-                         </div>`;
+                        </div>`;
             });
             html += `</div></div>`;
         }
@@ -416,15 +447,20 @@
                 addToCart(testName, btn);
             });
         });
-        
         attachClickToTestElements();
     }
 
     function renderPackages(search = "") {
         const container = document.getElementById("packagesGridContainer");
-        const term = search.trim().toLowerCase();
+        const term = search.trim();
         let filtered = [...catalogData.packages];
-        if (term) filtered = filtered.filter(pkg => pkg.name.toLowerCase().includes(term) || pkg.tests.some(t => t.toLowerCase().includes(term)));
+        if (term) {
+            const normTerm = normalizeString(term);
+            filtered = filtered.filter(pkg => 
+                normalizeString(pkg.name).includes(normTerm) ||
+                pkg.tests.some(t => normalizeString(t).includes(normTerm))
+            );
+        }
         if (selectedPackageCategory) filtered = filtered.filter(pkg => getPackageCategory(pkg) === selectedPackageCategory);
         if (filtered.length === 0) {
             container.innerHTML = `<div class="no-result"><i class="fas fa-search-minus"></i> No se encontraron paquetes con los filtros actuales.</div>`;
@@ -434,12 +470,13 @@
         let html = "";
         filtered.forEach(pkg => {
             const packageCost = getPackageCost(pkg);
+            const displayName = term ? highlightText(pkg.name, term) : escapeHtml(pkg.name);
             html += `<div class="package-card" data-package-name="${escapeHtml(pkg.name)}">
                         <div class="package-header">
-                            <div class="package-name"><i class="fa-solid fa-vials"></i> ${pkg.name}</div>
+                            <div class="package-name"><i class="fa-solid fa-vials"></i> ${displayName}</div>
                             <div class="package-badge"><i class="fas fa-list-ul"></i> ${pkg.tests.length} pruebas</div>
                         </div>
-                        <div class="package-studies-list"><ul>${pkg.tests.map(t => `<li><i class="fas fa-check-circle"></i> ${t}</li>`).join('')}</ul></div>
+                        <div class="package-studies-list"><ul>${pkg.tests.map(t => `<li><i class="fas fa-check-circle"></i> ${escapeHtml(t)}</li>`).join('')}</ul></div>
                         <div class="package-cost">${formatCost(packageCost)}</div>
                         <div class="package-footer-note">
                             <div class="footer-text"><i class="fas fa-clock"></i> Requiere preparación según cada prueba individual.</div>
@@ -457,7 +494,6 @@
                 addToCart(packageName, btn);
             });
         });
-        
         attachClickToTestElements();
     }
 
@@ -522,18 +558,22 @@
     function closeModal() { studySelectorModal.style.display = "none"; }
     function renderModalResults(searchTerm) {
         if (!modalResultsList) return;
-        const term = searchTerm.trim().toLowerCase();
+        const term = searchTerm.trim();
         let items = [];
         if (currentModalFilter === 'individual') items = catalogData.individualTests.map(test => ({ type: 'individual', name: test.name }));
         else items = catalogData.packages.map(pkg => ({ type: 'package', name: pkg.name }));
-        if (term) items = items.filter(item => item.name.toLowerCase().includes(term));
+        if (term) {
+            const normTerm = normalizeString(term);
+            items = items.filter(item => normalizeString(item.name).includes(normTerm));
+        }
         items.sort((a, b) => a.name.localeCompare(b.name));
         if (items.length === 0) { modalResultsList.innerHTML = '<div class="no-result">No se encontraron estudios</div>'; return; }
         let html = '';
         items.forEach(item => {
             const alreadySelected = selectedTests.includes(item.name);
-            html += `<div class="modal-study-item"><span class="modal-study-name">${escapeHtml(item.name)}</span>
-                     <button class="btn-add-modal" data-name="${escapeHtml(item.name)}" ${alreadySelected ? 'disabled style="opacity:0.5;"' : ''}>${alreadySelected ? '✓ Agregado' : '+ Agregar'}</button></div>`;
+            const displayName = term ? highlightText(item.name, term) : escapeHtml(item.name);
+            html += `<div class="modal-study-item"><span class="modal-study-name">${displayName}</span>
+                    <button class="btn-add-modal" data-name="${escapeHtml(item.name)}" ${alreadySelected ? 'disabled style="opacity:0.5;"' : ''}>${alreadySelected ? '✓ Agregado' : '+ Agregar'}</button></div>`;
         });
         modalResultsList.innerHTML = html;
         document.querySelectorAll('.btn-add-modal').forEach(btn => {
