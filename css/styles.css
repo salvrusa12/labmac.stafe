@@ -235,6 +235,7 @@ body {
     gap: 12px;
     font-weight: 500;
     cursor: pointer;
+    flex-wrap: wrap;
 }
 .study-card i {
     color: var(--secondary);
@@ -266,6 +267,29 @@ body {
     border-radius: 12px;
     padding: 2px 6px;
     color: #1e4a2e;
+}
+.btn-add-cart {
+    background: #00837d;
+    color: white;
+    border: none;
+    border-radius: 40px;
+    padding: 6px 14px;
+    font-size: 0.7rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s;
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    white-space: nowrap;
+}
+.btn-add-cart:hover {
+    background: var(--secondary-dark);
+    transform: scale(1.02);
+}
+.btn-add-cart:disabled {
+    opacity: 0.7;
+    cursor: not-allowed;
 }
 .no-result {
     text-align: center;
@@ -383,11 +407,50 @@ body {
     cursor: pointer;
 }
 .package-footer-note {
-    padding: 0.7rem 1.5rem 1.2rem;
-    font-size: 0.7rem;
+    padding: 0.9rem 1.5rem;
+    font-size: 0.75rem;
     color: #6b8c80;
     background: white;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    gap: 12px;
+    border-top: 1px solid #F0F5EA;
+}
+.footer-text {
+    flex: 1;
+    text-align: left;
+}
+.footer-text i {
+    margin-right: 6px;
+    color: var(--secondary);
+}
+.btn-add-package {
+    background: var(--primary);
+    color: #1E2A1C;
+    border: none;
+    border-radius: 40px;
+    padding: 8px 18px;
+    font-size: 0.75rem;
+    font-weight: 700;
     cursor: pointer;
+    transition: all 0.2s;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    white-space: nowrap;
+    box-shadow: 0 1px 2px rgba(0,0,0,0.05);
+}
+.btn-add-package:hover {
+    background: var(--primary-dark);
+    transform: translateY(-1px);
+    box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+}
+.btn-add-package:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+    transform: none;
 }
 
 /* ========== POPUP DE DETALLE ========== */
@@ -579,8 +642,6 @@ footer {
     padding: 0;
     box-sizing: border-box;
 }
-
-/* Responsable sanitario: izquierda */
 .health-license {
     width: 15%;
     text-align: center;
@@ -590,16 +651,12 @@ footer {
     padding: 0;
     color: #d2fcf2;
 }
-
-/* Contenedor para los dos teléfonos en columna (vertical) */
 .phones-column {
     display: flex;
     flex-direction: column;
-    align-items: flex-end;   /* alineados a la derecha en desktop */
+    align-items: flex-end;
     gap: 0.25rem;
 }
-
-/* Estilos comunes para ambos teléfonos */
 .phone {
     margin: 0;
     padding: 0;
@@ -612,7 +669,6 @@ footer {
     gap: 6px;
     width: auto;
 }
-
 .phone-2 {
     font-size: 1.1rem;
 }
@@ -620,8 +676,6 @@ footer {
 .phone-2 i {
     color: #a6f9bd;
 }
-
-/* Dirección */
 .footer-address {
     font-size: 1rem;
     margin-top: 25px;
@@ -632,8 +686,6 @@ footer {
     margin-left: 0;
     font-weight: 700;
 }
-
-/* Enlace de dirección en el footer */
 .footer-address a {
     color: inherit;
     text-decoration: underline;
@@ -644,8 +696,6 @@ footer {
     opacity: 0.85;
     cursor: pointer;
 }
-
-/* Enlaces legales */
 .footer-links {
     display: flex;
     flex-wrap: wrap;
@@ -1034,7 +1084,6 @@ footer {
 }
 
 /* ========== MEDIA QUERIES RESPONSIVE ========== */
-/* Pantallas medianas (tablets) */
 @media (max-width: 1024px) {
     .container { padding: 1rem; }
     .studies-grid { grid-template-columns: 1fr; }
@@ -1047,26 +1096,12 @@ footer {
     .fa-flask { display: none; }
     .info-note-box { margin-bottom: -50px; }
     .footer-address { font-size: 0.6rem; margin-top: 0.8rem; }
-    
-    /* Ajustes footer en tablet */
-    .phone {
-        font-size: 1.1rem;
-        white-space: nowrap;
-    }
-    .phone-2 {
-        font-size: 0.9rem;
-        white-space: nowrap;
-    }
-    .health-license {
-        width: 20%;
-        font-size: 0.7rem;
-    }
-    .phones-column {
-        align-items: flex-end;
-    }
+    .phone { font-size: 1.1rem; white-space: nowrap; }
+    .phone-2 { font-size: 0.9rem; white-space: nowrap; }
+    .health-license { width: 20%; font-size: 0.7rem; }
+    .phones-column { align-items: flex-end; }
 }
 
-/* Pantallas pequeñas (móviles anchos) */
 @media (max-width: 1000px) {
     .container { padding: 1rem; }
     .studies-grid { grid-template-columns: 1fr; }
@@ -1079,113 +1114,53 @@ footer {
     .fa-flask { display: none; }
     .study-card, .package-card { width: 90%; margin-left: auto; margin-right: auto; }
     .studies-grid, .packages-grid { justify-items: center; align-items: center; }
-    .study-card { padding: 12px 16px; }
+    .study-card { padding: 12px 16px; flex-wrap: wrap; }
+    .btn-add-cart { margin-top: 6px; width: 100%; justify-content: center; white-space: normal; }
     .package-card { margin-bottom: 1.2rem; }
+    .package-footer-note { flex-direction: column; align-items: stretch; text-align: center; }
+    .footer-text { text-align: center; }
+    .btn-add-package { justify-content: center; white-space: normal; width: 100%; }
     .back-to-top { visibility: visible; }
     .sample-type-icon { width: 45px; }
     .sample-type-fa { font-size: 1.6rem; }
-    
-    .info-footer {
-        flex-direction: column;
-        justify-content: center;
-        gap: 0.5rem;
-        margin: 0.5rem 0;
-    }
-    .health-license {
-        width: auto;
-        font-size: 0.7rem;
-        margin: 0;
-    }
-    .phones-column {
-        align-items: center;
-        width: 100%;
-    }
-    .phone,
-    .phone-2 {
-        font-size: 1rem;
-        white-space: normal;
-        width: auto;
-        margin: 0;
-    }
-    .phone-2 {
-        font-size: 0.9rem;
-    }
+    .info-footer { flex-direction: column; justify-content: center; gap: 0.5rem; margin: 0.5rem 0; }
+    .health-license { width: auto; font-size: 0.7rem; margin: 0; }
+    .phones-column { align-items: center; width: 100%; }
+    .phone, .phone-2 { font-size: 1rem; white-space: normal; width: auto; margin: 0; }
+    .phone-2 { font-size: 0.9rem; }
 }
 
-/* Móviles (menos de 768px) */
 @media (max-width: 768px) {
     .back-to-top { width: 44px; height: 44px; font-size: 1.2rem; bottom: 1.2rem; right: 1rem; }
-    
-    .info-footer {
-        flex-direction: column;
-        justify-content: center;
-        gap: 0.5rem;
-        margin: 0.5rem 0;
-    }
-    .health-license {
-        width: auto;
-        font-size: 0.7rem;
-        margin: 0;
-        text-align: center;
-    }
-    .phones-column {
-        align-items: center;
-        width: 100%;
-    }
-    .phone,
-    .phone-2 {
-        font-size: 1rem;
-        white-space: normal;
-        width: auto;
-        margin: 0;
-        text-align: center;
-    }
-    .phone-2{
-        font-size: 0.9rem;
-    }
-    .footer-links {
-        gap: 1rem;
-        flex-direction: column;
-        align-items: center;
-        margin-top: 1rem;
-    }
-    .privacy-link {
-        font-size: 0.75rem;
-    }
+    .info-footer { flex-direction: column; justify-content: center; gap: 0.5rem; margin: 0.5rem 0; }
+    .health-license { width: auto; font-size: 0.7rem; margin: 0; text-align: center; }
+    .phones-column { align-items: center; width: 100%; }
+    .phone, .phone-2 { font-size: 1rem; white-space: normal; width: auto; margin: 0; text-align: center; }
+    .phone-2 { font-size: 0.9rem; }
+    .footer-links { gap: 1rem; flex-direction: column; align-items: center; margin-top: 1rem; }
+    .privacy-link { font-size: 0.75rem; }
 }
 
-/* Móviles muy pequeños (menos de 480px) */
 @media (max-width: 480px) {
     .test-popup { width: 95%; max-width: 95%; border-radius: 20px; }
     .popup-header h3 { font-size: 1rem; }
     .popup-body { padding: 0.8rem; }
     .popup-footer { padding: 0.1rem; font-size: 0.65rem; }
-    
-    .phone,
-    .phone-2 {
-        font-size: 0.9rem;
-    }
-    .phone-2 {
-        font-size: 0.8rem;
-    }
-    .health-license {
-        font-size: 0.65rem;
-    }
+    .phone, .phone-2 { font-size: 0.9rem; }
+    .phone-2 { font-size: 0.8rem; }
+    .health-license { font-size: 0.65rem; }
 }
 
 /* Estilos específicos para el enlace de WhatsApp */
 .phone-2 {
-    text-decoration: none;   /* quita subrayado por defecto */
-    color: #ffffff;          /* mantiene el color blanco */
+    text-decoration: none;
+    color: #ffffff;
 }
-
 .phone-2:hover {
     text-decoration: underline;
     opacity: 0.85;
     cursor: pointer;
 }
-
-/* Fuerza el color blanco en enlaces de dirección y WhatsApp */
 .footer-address a,
 .footer-address a:link,
 .footer-address a:visited,

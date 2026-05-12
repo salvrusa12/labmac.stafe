@@ -31,7 +31,6 @@
     //Normalizar tipos de muestra ----------
     function normalizeSampleTypes(sampleStr) {
         if (!sampleStr) return [];
-        // Separar por comas o por " y " (español)
         let parts = sampleStr.split(/[,y]+/).map(p => p.trim().toLowerCase());
         let types = new Set();
         for (let part of parts) {
@@ -52,7 +51,6 @@
         return Array.from(types);
     }
 
-    // ---------- NUEVA FUNCIÓN: renderizar iconos según tipo de muestra ----------
     function renderSampleIcons(sampleStr) {
         const types = normalizeSampleTypes(sampleStr);
         if (types.length === 0) {
@@ -87,7 +85,6 @@
         return iconsHtml;
     }
 
-    // ---------- FUNCIONES EXISTENTES (solo se modifican showPopup y showPackagePopup) ----------
     function escapeHtml(str) {
         if (!str) return '';
         return str.replace(/[&<>]/g, m => ({ '&':'&amp;', '<':'&lt;', '>':'&gt;' }[m]));
@@ -187,7 +184,6 @@
         return descSection;
     }
 
-    // MODIFICADA: usa renderSampleIcons
     function showPopup(testName, x, y) {
         const details = getTestDetails(testName);
         popupTestName.innerText = testName;
@@ -203,7 +199,6 @@
         const instructions = getInstructions(testName);
         popupInstructions.innerHTML = instructions.map(item => `<li><i class="fas fa-circle" style="font-size:0.4rem; color:var(--secondary); margin-right:8px;"></i> ${escapeHtml(item)}</li>`).join('');
         
-        // --- NUEVO: mostrar tipo de muestra con iconos dinámicos ---
         const sampleText = details.sample || "Variable";
         const iconsHtml = renderSampleIcons(sampleText);
         popupSampleType.innerHTML = `<div class="sample-type-text">${escapeHtml(sampleText)}</div>${iconsHtml}`;
@@ -212,7 +207,6 @@
         overlay.style.display = "block";
     }
 
-    // MODIFICADA: igual para paquetes
     function showPackagePopup(pkg, event) {
         if (event) event.stopPropagation();
         popupTestName.innerText = pkg.name;
@@ -229,7 +223,6 @@
         const instructions = pkg.instructions && pkg.instructions.length ? pkg.instructions : ["Paquete de estudios clínicos.", "Consulte los requisitos de cada prueba incluida."];
         popupInstructions.innerHTML = instructions.map(item => `<li><i class="fas fa-circle" style="font-size:0.4rem; color:var(--secondary); margin-right:8px;"></i> ${escapeHtml(item)}</li>`).join('');
         
-        // --- NUEVO: iconos dinámicos para el paquete (sample puede ser varios) ---
         const sampleText = pkg.sample || "Variable según pruebas incluidas";
         const iconsHtml = renderSampleIcons(sampleText);
         popupSampleType.innerHTML = `<div class="sample-type-text">${escapeHtml(sampleText)}</div>${iconsHtml}`;
@@ -246,17 +239,71 @@
     document.getElementById("closePopupBtn").addEventListener("click", hidePopup);
     overlay.addEventListener("click", hidePopup);
 
+    // ---------- AGREGAR AL CARRITO ----------
+    function addToCart(itemName, buttonElement = null) {
+        if (!itemName) return;
+        
+        if (selectedTests.includes(itemName)) {
+            if (buttonElement) {
+                const originalText = buttonElement.innerHTML;
+                buttonElement.innerHTML = '⚠️ Ya agregado';
+                buttonElement.disabled = true;
+                setTimeout(() => {
+                    buttonElement.innerHTML = originalText;
+                    buttonElement.disabled = false;
+                }, 1200);
+            } else {
+                alert(`El estudio "${itemName}" ya está en tu cotización.`);
+            }
+            return;
+        }
+        
+        selectedTests.push(itemName);
+        renderSelectedTestsList();
+        updateTotalDisplay();
+        
+        if (buttonElement) {
+            const originalText = buttonElement.innerHTML;
+            buttonElement.innerHTML = '✅ Agregado';
+            buttonElement.disabled = true;
+            setTimeout(() => {
+                buttonElement.innerHTML = originalText;
+                buttonElement.disabled = false;
+            }, 1000);
+        }
+    }
+
+    function handleAddClick(event, itemName, buttonElement) {
+        event.stopPropagation();
+        addToCart(itemName, buttonElement);
+    }
+
+    function attachClickToTestElements() {
+        document.querySelectorAll('.study-card').forEach(el => {
+            el.removeEventListener('click', clickHandler);
+            el.addEventListener('click', clickHandler);
+        });
+        document.querySelectorAll('.package-card').forEach(el => {
+            el.removeEventListener('click', packageClickHandler);
+            el.addEventListener('click', packageClickHandler);
+        });
+    }
+
     function clickHandler(e) {
+        if (e.target.closest('.btn-add-cart')) return;
         e.stopPropagation();
         const testName = e.currentTarget.getAttribute('data-testname');
         if (testName) showPopup(testName, e.clientX, e.clientY);
     }
-
-    function attachClickToTestElements() {
-        document.querySelectorAll('.study-card, .package-studies-list li').forEach(el => {
-            el.removeEventListener('click', clickHandler);
-            el.addEventListener('click', clickHandler);
-        });
+    
+    function packageClickHandler(e) {
+        if (e.target.closest('.btn-add-package')) return;
+        e.stopPropagation();
+        const packageName = e.currentTarget.getAttribute('data-package-name');
+        if (packageName) {
+            const pkg = catalogData.packages.find(p => p.name === packageName);
+            if (pkg) showPackagePopup(pkg, e);
+        }
     }
 
     function getStudyCost(studyName) {
@@ -353,6 +400,7 @@
                             <i class="fas fa-vial"></i> 
                             <span>${display}</span>
                             <span class="test-cost">${formatCost(test.cost)}</span>
+                            <button class="btn-add-cart" data-testname="${escapeHtml(test.name)}"><i class="fas fa-plus-circle"></i> Cotizar</button>
                          </div>`;
             });
             html += `</div></div>`;
@@ -360,6 +408,15 @@
         container.innerHTML = html;
         const filterText = selectedCategory ? ` · Categoría: ${selectedCategory}` : "";
         document.getElementById("statsIndividual").innerHTML = `📊 ${filtered.length} estudios individuales disponibles${filterText}.`;
+        
+        document.querySelectorAll('.btn-add-cart').forEach(btn => {
+            const testName = btn.getAttribute('data-testname');
+            btn.addEventListener('click', (e) => {
+                e.stopPropagation();
+                addToCart(testName, btn);
+            });
+        });
+        
         attachClickToTestElements();
     }
 
@@ -384,11 +441,23 @@
                         </div>
                         <div class="package-studies-list"><ul>${pkg.tests.map(t => `<li><i class="fas fa-check-circle"></i> ${t}</li>`).join('')}</ul></div>
                         <div class="package-cost">${formatCost(packageCost)}</div>
-                        <div class="package-footer-note"><i class="fas fa-clock"></i> Requiere preparación según cada prueba individual.</div>
+                        <div class="package-footer-note">
+                            <div class="footer-text"><i class="fas fa-clock"></i> Requiere preparación según cada prueba individual.</div>
+                            <button class="btn-add-package" data-package-name="${escapeHtml(pkg.name)}"><i class="fas fa-plus-circle"></i> Agregar paquete</button>
+                        </div>
                     </div>`;
         });
         container.innerHTML = html;
         document.getElementById("statsPackages").innerHTML = `📦 ${filtered.length} paquetes disponibles.${selectedPackageCategory ? ` · Categoría: ${selectedPackageCategory}` : ''}`;
+        
+        document.querySelectorAll('.btn-add-package').forEach(btn => {
+            const packageName = btn.getAttribute('data-package-name');
+            btn.addEventListener('click', (e) => {
+                e.stopPropagation();
+                addToCart(packageName, btn);
+            });
+        });
+        
         attachClickToTestElements();
     }
 
@@ -411,7 +480,7 @@
         container.innerHTML = html;
     }
 
-    // ---------- CARRITO Y FORMULARIO (sin cambios relevantes, solo se mantiene) ----------
+    // ---------- CARRITO Y FORMULARIO ----------
     function renderSelectedTestsList() {
         const container = document.getElementById("selectedTestsList");
         if (!container) return;
@@ -435,7 +504,7 @@
         updateTotalDisplay();
     }
 
-    // Modal selector (sin cambios)
+    // Modal selector
     const studySelectorModal = document.getElementById("studySelectorModal");
     const openStudySelectorBtn = document.getElementById("openStudySelectorBtn");
     const closeModalBtns = [document.getElementById("closeModalBtn"), document.getElementById("closeModalFooterBtn")];
@@ -494,7 +563,7 @@
         });
     }
 
-    // EmailJS (sin cambios)
+    // EmailJS
     const appointmentForm = document.getElementById("appointmentForm");
     const formMessage = document.getElementById("formMessage");
     const serviceID = 'service_n899ono';
@@ -570,7 +639,6 @@
             else btn.classList.remove("active");
         });
 
-        // Ocultar/mostrar el cuadro de búsqueda global
         const searchWrapper = document.querySelector('.search-wrapper');
         if (searchWrapper) {
             searchWrapper.style.display = tab === 'appointment' ? 'none' : 'flex';
@@ -621,20 +689,6 @@
     }
     loadCatalog();
 
-    const packagesContainer = document.getElementById("packagesGridContainer");
-    if (packagesContainer) {
-        packagesContainer.addEventListener('click', (e) => {
-            const packageCard = e.target.closest('.package-card');
-            if (packageCard) {
-                const packageName = packageCard.getAttribute('data-package-name');
-                if (packageName) {
-                    const pkg = catalogData.packages.find(p => p.name === packageName);
-                    if (pkg) showPackagePopup(pkg, e);
-                }
-            }
-        });
-    }
-
     document.addEventListener('DOMContentLoaded', function() {
         const backToTopBtn = document.getElementById('backToTopBtn');
         if (backToTopBtn) {
@@ -647,7 +701,5 @@
             });
         }
     });
-
-
 
 })();
