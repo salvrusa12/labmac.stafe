@@ -645,7 +645,7 @@
       ]
     },
     {
-      "id": "",
+      "id": "2610210073",
       "name": "Capacidad Latente de Fijación de Hierro UIBC",
       "sample": "Suero",
       "category": "Marcadores y Vitaminas",
@@ -1828,7 +1828,7 @@
       ]
     },
     {
-      "id": "2610190040",
+      "id": "2610190130",
       "name": "Perfil Reumático",
       "description": "Estudio para enfermedades reumáticas: PCR cuantitativa, ácido úrico, factor reumatoide, VSG, biometría hemática y antiestreptolisinas.",
       "tests": [
@@ -1846,7 +1846,7 @@
       ]
     },
     {
-      "id": null,
+      "id": 2610190132,
       "name": "Perfil Control De Diabetes",
       "description": "Seguimiento para diabetes: glucosa en ayuno, hemoglobina glicosilada y examen general de orina. Útil para monitoreo glucémico.",
       "tests": [
@@ -1896,7 +1896,7 @@
       ]
     },
     {
-      "id": "2610190112",
+      "id": "2610190131",
       "name": "Enzimas Pancreáticas",
       "description": "Medición de amilasa y lipasa séricas. Clave en el diagnóstico de pancreatitis y otras enfermedades pancreáticas.",
       "tests": [
@@ -1926,7 +1926,7 @@
       ]
     },
     {
-      "id": "2610190112",
+      "id": "2610190129",
       "name": "Preoperatorios",
       "description": "Panel prequirúrgico: biometría hemática, glucosa, urea, creatinina, grupo sanguíneo y tiempos de coagulación. Ayuno de 8-12 horas.",
       "tests": [
