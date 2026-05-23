@@ -2,7 +2,7 @@
   "individualTests": [
     {
       "id": "2610130002",
-      "name": "Biometría Hemática",
+      "name": "Biometría Hemática (BH)",
       "sample": "Sangre Total",
       "category": "Hematología",
       "cost": 240.00,
@@ -336,7 +336,7 @@
     },
     {
       "id": "2610200004",
-      "name": "Bilirrubina Total",
+      "name": "Bilirrubina Total (BT)",
       "sample": "Suero",
       "category": "Perfil Hepático / Enzimas",
       "cost": 200.00,
@@ -358,25 +358,74 @@
     },
     {
       "id": "2610200071",
-      "name": "Bilirrubina Indirecta",
+      "name": "Bilirrubina Indirecta (BI)",
       "sample": "Suero",
-      "category": "Perfil Hepático / Enzimas",
+      "category": "Perfil Hepático",
       "cost": 200.00,
-      "description": "Fracción no conjugada. Se eleva en hemólisis, síndrome de Gilbert y enfermedades hepáticas.",
+      "description": "Fracción no conjugada de la bilirrubina. Se eleva en hemólisis, síndrome de Gilbert y en algunas enfermedades hepáticas.",
       "instructions": [
-        "Ayuno de 8 a 12 horas."
+        "Ayuno de 8 a 12 horas.",
+        "Evitar consumo de alcohol 24 horas antes."
       ]
     },
     {
       "id": "2610210025",
       "name": "Deshidrogenasa Láctica LDH",
       "sample": "Suero",
-      "category": "Perfil Hepático / Enzimas",
+      "category": "Enzimas",
       "cost": 420.00,
-      "description": "Enzima ubicua. Elevada en daño tisular (hígado, corazón, pulmón, hemólisis, neoplasias).",
+      "description": "Enzima presente en múltiples tejidos. Se eleva en daño tisular como infarto, enfermedades hepáticas, pulmonares, hemólisis o neoplasias.",
       "instructions": [
         "Ayuno de 8 a 12 horas.",
         "Evitar ejercicio intenso 24 horas antes."
+      ]
+    },
+    {
+      "id": "2610210003",
+      "name": "Amilasa",
+      "sample": "Suero",
+      "category": "Enzimas Pancreáticas",
+      "cost": 325.00,
+      "description": "Enzima digestiva producida principalmente por páncreas y glándulas salivales. Se eleva en pancreatitis y otros trastornos pancreáticos.",
+      "instructions": [
+        "Ayuno de 8 a 12 horas.",
+        "Evitar consumo de alcohol 24 horas antes."
+      ]
+    },
+    {
+      "id": "2610210045",
+      "name": "Lipasa",
+      "sample": "Suero",
+      "category": "Enzimas Pancreáticas",
+      "cost": 280.00,
+      "description": "Enzima pancreática encargada de la digestión de grasas. Es más específica que la amilasa para el diagnóstico de pancreatitis.",
+      "instructions": [
+        "Ayuno de 8 a 12 horas.",
+        "Evitar consumo de alcohol y alimentos grasos previos."
+      ]
+    },
+    {
+      "id": "2610210017",
+      "name": "CPK Creatina Fosfoquinasa Total (CK Total)",
+      "sample": "Suero",
+      "category": "Enzimas Musculares",
+      "cost": 550.00,
+      "description": "Enzima presente en músculo esquelético, cardíaco y cerebro. Se eleva en daño muscular, infarto y ejercicio intenso.",
+      "instructions": [
+        "Evitar ejercicio intenso 24 a 48 horas antes.",
+        "Ayuno de 8 horas recomendado."
+      ]
+    },
+    {
+      "id": "2610210016",
+      "name": "CPK-MB Creatina Fosfoquinasa Isoenzima MB (CK-MB)",
+      "sample": "Suero",
+      "category": "Marcadores Cardiacos",
+      "cost": 335.00,
+      "description": "Isoenzima de la CPK específica del músculo cardíaco. Se utiliza como marcador de daño miocárdico.",
+      "instructions": [
+        "No requiere ayuno obligatorio.",
+        "Evitar ejercicio intenso previo a la prueba."
       ]
     },
     {
@@ -385,10 +434,10 @@
       "sample": "Suero",
       "category": "Índices Calculados",
       "cost": 425.00,
-      "description": "Estimador de resistencia a la insulina, factor de riesgo para diabetes tipo 2, síndrome metabólico y obesidad.",
+      "description": "Estimador de resistencia a la insulina calculado a partir de glucosa e insulina en ayuno. Asociado a riesgo de diabetes tipo 2 y síndrome metabólico.",
       "instructions": [
         "Ayuno de 8 a 12 horas.",
-        "No fumar ni hacer ejercicio antes de la toma."
+        "No fumar ni realizar ejercicio antes de la toma."
       ]
     },
     {
@@ -397,10 +446,10 @@
       "sample": "Suero",
       "category": "Hormonas Tiroideas",
       "cost": 485.00,
-      "description": "Principal prueba para evaluar función tiroidea. TSH alta sugiere hipotiroidismo; baja, hipertiroidismo.",
+      "description": "Principal prueba para evaluar la función tiroidea. Valores altos indican hipotiroidismo y bajos hipertiroidismo.",
       "instructions": [
-        "No requiere ayuno en la mayoría de casos.",
-        "Tomar la muestra antes de la dosis diaria de medicamento tiroideo.",
+        "No requiere ayuno en la mayoría de los casos.",
+        "Tomar la muestra antes de la dosis de medicamento tiroideo.",
         "Preferentemente en horario matutino."
       ]
     },
@@ -410,10 +459,10 @@
       "sample": "Suero",
       "category": "Hormonas Tiroideas",
       "cost": 305.00,
-      "description": "Hormona tiroidea activa. Se eleva en hipertiroidismo. Su medición ayuda a evaluar la función tiroidea.",
+      "description": "Hormona tiroidea activa. Se eleva en hipertiroidismo y ayuda a complementar la evaluación de la función tiroidea.",
       "instructions": [
-        "No requiere ayuno en la mayoría de casos.",
-        "Tomar la muestra antes de la dosis diaria de medicamento tiroideo."
+        "No requiere ayuno en la mayoría de los casos.",
+        "Tomar la muestra antes de la dosis diaria de hormona tiroidea."
       ]
     },
     {
@@ -619,6 +668,44 @@
       ]
     },
     {
+      "id": "2610170010",
+      "name": "Antígeno Prostático Específico Total (PSA)",
+      "sample": "Suero",
+      "category": "Marcadores Tumorales",
+      "cost": 635.00,
+      "description": "Proteína producida por la próstata. Se utiliza como marcador para detección y seguimiento de enfermedades prostáticas, incluyendo hiperplasia prostática benigna y cáncer de próstata.",
+      "instructions": [
+        "Evitar eyaculación 48 horas antes de la toma.",
+        "No realizar tacto rectal o manipulación prostática previa (al menos 48 horas).",
+        "Preferentemente ayuno de 8 horas."
+      ]
+    },
+    {
+      "id": "2610150132",
+      "name": "Antígeno Prostático Libre (PSA Libre)",
+      "sample": "Suero",
+      "category": "Marcadores Tumorales",
+      "cost": 605.00,
+      "description": "Fracción libre del PSA. Se utiliza junto con el PSA total para mejorar la diferenciación entre hiperplasia prostática benigna y cáncer de próstata.",
+      "instructions": [
+        "Evitar eyaculación 48 horas antes de la toma.",
+        "No realizar tacto rectal o procedimientos prostáticos previos.",
+        "Realizar junto con PSA total para interpretación."
+      ]
+    },
+    {
+      "id": "2610210034",
+      "name": "Fosfatasa Ácida Total",
+      "sample": "Suero",
+      "category": "Enzimas",
+      "cost": 605.00,
+      "description": "Enzima presente en diversos tejidos, especialmente en la próstata. Se eleva en enfermedades prostáticas y en algunos trastornos óseos.",
+      "instructions": [
+        "Evitar tacto rectal o manipulación prostática previa.",
+        "Ayuno de 8 horas recomendado."
+      ]
+    },
+    {
       "id": "2610210031",
       "name": "Ferritina",
       "sample": "Suero",
@@ -718,7 +805,7 @@
     },
     {
       "id": "2610150037",
-      "name": "Anti‑DNA De Doble Cadena",
+      "name": "Anti‑DNA De Doble Cadena (Anti-dsDNA)",
       "sample": "Suero",
       "category": "Inmunología / Autoinmunidad",
       "cost": 755.00,
@@ -729,7 +816,7 @@
     },
     {
       "id": "2610140028",
-      "name": "Anticuerpos Anti‑CCP",
+      "name": "Anticuerpos Anti‑CCP (Anti-CCP)",
       "sample": "Suero",
       "category": "Inmunología / Autoinmunidad",
       "cost": 1860.00,
