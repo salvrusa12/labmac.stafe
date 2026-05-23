@@ -1036,7 +1036,7 @@
       ]
     },
     {
-      "id": "2610110025",
+      "id": "2610110020",
       "name": "Tiempo de Protrombina (TP)",
       "sample": "Plasma",
       "category": "Coagulación / Hemostasia",
@@ -1897,7 +1897,7 @@
       ]
     },
     {
-      "id": "2610190005",
+      "id": "2610140075",
       "name": "Perfil de Andrógenos",
       "description": "Panel de hormonas androgénicas: 17-alfa hidroxiprogesterona, androstenediona, DHEA, DHEAS y testosterona libre/total. Muestra matutina.",
       "tests": [
@@ -2034,7 +2034,7 @@
       ]
     },
     {
-      "id": "2610200266",
+      "id": "2610150104",
       "name": "Anticuerpos Anti Tiroideos",
       "description": "Detección de autoanticuerpos tiroideos: anti-TPO y anti-tiroglobulina. Ayuda en diagnóstico de tiroiditis de Hashimoto.",
       "tests": [
