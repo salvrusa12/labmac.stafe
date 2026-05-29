@@ -360,7 +360,7 @@
       "id": "2610200071",
       "name": "Bilirrubina Indirecta (BI)",
       "sample": "Suero",
-      "category": "Perfil Hepático",
+      "category": "Perfil Hepático / Enzimas",
       "cost": 200.00,
       "description": "Fracción no conjugada de la bilirrubina. Se eleva en hemólisis, síndrome de Gilbert y en algunas enfermedades hepáticas.",
       "instructions": [
@@ -384,7 +384,7 @@
       "id": "2610210003",
       "name": "Amilasa",
       "sample": "Suero",
-      "category": "Enzimas Pancreáticas",
+      "category": "Enzimas",
       "cost": 325.00,
       "description": "Enzima digestiva producida principalmente por páncreas y glándulas salivales. Se eleva en pancreatitis y otros trastornos pancreáticos.",
       "instructions": [
@@ -396,7 +396,7 @@
       "id": "2610210045",
       "name": "Lipasa",
       "sample": "Suero",
-      "category": "Enzimas Pancreáticas",
+      "category": "Enzimas",
       "cost": 280.00,
       "description": "Enzima pancreática encargada de la digestión de grasas. Es más específica que la amilasa para el diagnóstico de pancreatitis.",
       "instructions": [
@@ -408,7 +408,7 @@
       "id": "2610210017",
       "name": "CPK Creatina Fosfoquinasa Total (CK Total)",
       "sample": "Suero",
-      "category": "Enzimas Musculares",
+      "category": "Enzimas",
       "cost": 550.00,
       "description": "Enzima presente en músculo esquelético, cardíaco y cerebro. Se eleva en daño muscular, infarto y ejercicio intenso.",
       "instructions": [
@@ -516,7 +516,7 @@
       "id": "2610140019",
       "name": "Hormona Folículo Estimulante FSH",
       "sample": "Suero",
-      "category": "Hormonas – Ginecológicas",
+      "category": "Hormonas Sexuales",
       "cost": 500.00,
       "description": "Regula la función ovárica y testicular. Niveles altos en menopausia o falla ovárica; bajos en hipogonadismo hipogonadotrófico.",
       "instructions": [
@@ -528,7 +528,7 @@
       "id": "2610140020",
       "name": "Hormona Luteinizante LH",
       "sample": "Suero",
-      "category": "Hormonas – Ginecológicas",
+      "category": "Hormonas Sexuales",
       "cost": 500.00,
       "description": "Induce la ovulación y producción de testosterona. Útil en infertilidad, menopausia y trastornos menstruales.",
       "instructions": [
@@ -540,7 +540,7 @@
       "id": "2610140010",
       "name": "Estradiol",
       "sample": "Suero",
-      "category": "Hormonas – Ginecológicas",
+      "category": "Hormonas Sexuales",
       "cost": 410.00,
       "description": "Principal estrógeno. Regula el ciclo menstrual y caracteres sexuales femeninos. Se usa en fertilidad y menopausia.",
       "instructions": [
@@ -552,7 +552,7 @@
       "id": "2610200194",
       "name": "Progesterona",
       "sample": "Suero",
-      "category": "Hormonas – Ginecológicas",
+      "category": "Hormonas Sexuales",
       "cost": 365.00,
       "description": "Hormona clave en el ciclo menstrual y el embarazo. Evalúa ovulación y apoyo de la fase lútea.",
       "instructions": [
@@ -564,7 +564,7 @@
       "id": "2610140031",
       "name": "Prolactina PRL",
       "sample": "Suero",
-      "category": "Hormonas – Ginecológicas",
+      "category": "Hormonas Sexuales",
       "cost": 685.00,
       "description": "Estimula la producción de leche. Elevada en prolactinoma, estrés, fármacos o hipotiroidismo.",
       "instructions": [
@@ -577,7 +577,7 @@
       "id": "2610140041",
       "name": "Testosterona Total",
       "sample": "Suero",
-      "category": "Hormonas – Andrógenos",
+      "category": "Hormonas Sexuales",
       "cost": 405.00,
       "description": "Hormona sexual masculina. Se usa en evaluación de hipogonadismo, infertilidad, hirsutismo y trastornos de la diferenciación sexual.",
       "instructions": [
@@ -589,7 +589,7 @@
       "id": "2610140040",
       "name": "Testosterona Libre",
       "sample": "Suero",
-      "category": "Hormonas – Andrógenos",
+      "category": "Hormonas Sexuales",
       "cost": 685.00,
       "description": "Fracción biológicamente activa. Útil en pacientes con alteraciones de proteínas transportadoras (SHBG).",
       "instructions": [
@@ -601,7 +601,7 @@
       "id": "2610200001",
       "name": "17‑Alfa Hidroxiprogesterona",
       "sample": "Suero",
-      "category": "Hormonas – Andrógenos",
+      "category": "Hormonas Sexuales",
       "cost": 780.00,
       "description": "Intermediario en la síntesis de cortisol y aldosterona. Elevada en hiperplasia adrenal congénita.",
       "instructions": [
@@ -613,7 +613,7 @@
       "id": "2610200023",
       "name": "Androstenediona",
       "sample": "Suero",
-      "category": "Hormonas – Andrógenos",
+      "category": "Hormonas Sexuales",
       "cost": 585.00,
       "description": "Andrógeno producido por ovarios y suprarrenales. Elevada en síndrome de ovario poliquístico y tumores suprarrenales.",
       "instructions": [
@@ -624,7 +624,7 @@
       "id": "2610200099",
       "name": "Dehidroepiandrosterona DHEA",
       "sample": "Suero",
-      "category": "Hormonas – Andrógenos",
+      "category": "Hormonas Sexuales",
       "cost": 625.00,
       "description": "Andrógeno suprarrenal. Se usa como marcador de función suprarrenal y en evaluación de hirsutismo.",
       "instructions": [
@@ -635,7 +635,7 @@
       "id": "2610200100",
       "name": "Dehidroepiandrosterona Sulfato DHEAS",
       "sample": "Suero",
-      "category": "Hormonas – Andrógenos",
+      "category": "Hormonas Sexuales",
       "cost": 655.00,
       "description": "Principal andrógeno circulante, de origen suprarrenal. Elevado en tumores suprarrenales e hiperplasia adrenal.",
       "instructions": [
@@ -665,6 +665,44 @@
         "Ayuno de 8 horas.",
         "Tomar muestra entre 7:00 y 9:00 AM (ritmo circadiano).",
         "Evitar estrés físico y emocional previo."
+      ]
+    },
+    {
+      "id": "2610140013",
+      "name": "Globulina Fijadora de Hormonas Sexuales SHBG",
+      "sample": "Suero",
+      "category": "Hormonas Sexuales",
+      "cost": 2277.00,
+      "description": "Proteína transportadora que regula la biodisponibilidad de testosterona y estradiol. Se evalúa en síndrome de ovario poliquístico, hipogonadismo, hirsutismo y alteraciones androgénicas.",
+      "instructions": [
+        "Ayuno de 4 a 8 horas.",
+        "Tomar muestra preferentemente entre 7:00 y 10:00 AM.",
+        "Evitar ejercicio intenso 24 horas previas."
+      ]
+    },
+    {
+      "id": "2610200302",
+      "name": "Vitamina D3",
+      "sample": "Suero",
+      "category": "Marcadores y Vitaminas",
+      "cost": 2075.00,
+      "description": "Medición de 25-hidroxivitamina D para evaluar el estado de vitamina D. Esencial para salud ósea, absorción de calcio, función inmune y prevención de osteoporosis y raquitismo.",
+      "instructions": [
+        "Ayuno de 4 horas recomendado.",
+        "Informar sobre medicamentos como corticoides, anticonvulsivantes o suplementos nutricionales."
+      ]
+    },
+    {
+      "id": "2610140076",
+      "name": "Pregnenolona",
+      "sample": "Suero",
+      "category": "Otras Hormonas",
+      "cost": 3800.00,
+      "description": "Hormona precursora en la síntesis de esteroides (cortisol, progesterona, testosterona, estrógenos). Se evalúa en fatiga adrenal, desequilibrios hormonales, estrés crónico y trastornos endocrinos.",
+      "instructions": [
+        "Ayuno de 8 horas.",
+        "Tomar muestra entre 7:00 y 9:00 AM por ritmo circadiano.",
+        "Informar sobre terapia de reemplazo hormonal, suplementos o medicamentos que afecten el eje adrenal."
       ]
     },
     {
@@ -1717,7 +1755,7 @@
     {
       "id": "2610190078",
       "name": "Química Sanguínea 35 Elementos",
-      "description": "Panel sanguíneo más completo: añade enzimas pancreáticas, CPK y marcadores avanzados. Perfecto para diagnóstico preciso.",
+      "description": "Panel sanguíneo más completo: añade Enzimas, CPK y marcadores avanzados. Perfecto para diagnóstico preciso.",
       "tests": [
         "Glucosa",
         "Urea",
@@ -1984,7 +2022,7 @@
     },
     {
       "id": "2610190131",
-      "name": "Enzimas Pancreáticas",
+      "name": "Enzimas",
       "description": "Medición de amilasa y lipasa séricas. Clave en el diagnóstico de pancreatitis y otras enfermedades pancreáticas.",
       "tests": [
         "Amilasa",
@@ -2045,6 +2083,22 @@
       "sample": "Suero",
       "instructions": [
         "No requiere ayuno."
+      ]
+    },
+    {
+      "id": "2610150199",
+      "name": "Testosterona Libre y Biodisponible",
+      "description": "Evaluación de la fracción activa de testosterona circulante. Útil en diagnóstico de hipogonadismo, andropausia y síndromes hiperandrogénicos.",
+      "tests": [
+        "Testosterona Libre",
+        "Testosterona Biodisponible"
+      ],
+      "cost": 2387.00,
+      "sample": "Suero",
+      "instructions": [
+        "Ayuno de 4 horas.",
+        "La toma de muestra debe realizarse entre las 7:00 y 10:00 a.m. debido al ritmo circadiano de la testosterona.",
+        "Informar al laboratorio sobre medicamentos en uso (corticoides, anticonceptivos, terapia de reemplazo hormonal)."
       ]
     },
     {
