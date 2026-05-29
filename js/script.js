@@ -698,14 +698,20 @@
 
         let rows = "";
 
+
+
         selectedTests.forEach((test, index) => {
             const details = getStudyDetails(test);
             const costo = formatCost(details.cost);
+            const id = details.id || "N/D";
 
             rows += `
             <tr style="page-break-inside: avoid;">
                 <td style="padding:10px; border-bottom:1px solid #EAF0E4;">
                     ${index + 1}. ${test}
+                    <span style="font-size:10px; color:#6b8c80; margin-left:8px;">
+                        [ID: ${id}]
+                    </span>
                 </td>
                 <td style="padding:10px; text-align:right; border-bottom:1px solid #EAF0E4; font-weight:600; color:#00BAB2;">
                     ${costo}
@@ -713,6 +719,8 @@
             </tr>
             `;
         });
+
+
 
         document.getElementById("pdfTableBody").innerHTML = rows;
         document.getElementById("pdfTotal").innerText = "TOTAL: " + formatCost(calculateTotalCost());
