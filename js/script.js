@@ -603,6 +603,192 @@
         });
     }
 
+
+
+    function generarPDFCotizacion() {
+        const { jsPDF } = window.jspdf;
+        const doc = new jsPDF();
+
+        const nombre = document.getElementById("patientName").value || "N/D";
+        const telefono = document.getElementById("patientPhone").value || "N/D";
+        const correo = document.getElementById("patientEmail").value || "N/D";
+
+        let y = 20;
+
+        doc.setFontSize(16);
+        doc.text("Laboratorio MAC Santa Fe", 20, y);
+        y += 10;
+
+        doc.setFontSize(12);
+        doc.text("Cotización de estudios", 20, y);
+        y += 10;
+
+        doc.text(`Nombre: ${nombre}`, 20, y);
+        y += 6;
+        doc.text(`Teléfono: ${telefono}`, 20, y);
+        y += 6;
+        doc.text(`Correo: ${correo}`, 20, y);
+        y += 10;
+
+        doc.text("Estudios solicitados:", 20, y);
+        y += 8;
+
+        selectedTests.forEach((test, index) => {
+            const details = getStudyDetails(test);
+            const costo = formatCost(details.cost);
+
+            doc.text(`${index + 1}. ${test} - ${costo}`, 20, y);
+            y += 6;
+
+            if (y > 280) {
+                doc.addPage();
+                y = 20;
+            }
+        });
+
+        y += 5;
+        doc.text(`Total: ${formatCost(calculateTotalCost())}`, 20, y);
+
+        doc.save("Cotizacion_Laboratorio_MAC.pdf");
+    }
+
+
+
+
+    const downloadBtn = document.getElementById("downloadPdfBtn");
+
+    if (downloadBtn) {
+        downloadBtn.addEventListener("click", function () {
+
+            if (selectedTests.length === 0) {
+
+                formMessage.innerHTML = `
+                <div style="color:#d9534f;">
+                Debe seleccionar al menos un estudio para descargar la cotización.
+                </div>`;
+
+                return;
+            }
+
+            generarPDFCotizacion();
+        });
+    }
+
+
+    async function generarPDFCotizacion() {
+        const { jsPDF } = window.jspdf;
+
+        const nombre = document.getElementById("patientName").value || "N/D";
+        const telefono = document.getElementById("patientPhone").value || "N/D";
+        const correo = document.getElementById("patientEmail").value || "N/D";
+        const fechaPref = document.getElementById("preferredDate").value || "No especificada";
+        const horaPref = document.getElementById("preferredTime").value || "No especificada";
+
+        const fecha = new Date().toLocaleDateString();
+
+        document.getElementById("pdfNombre").innerHTML = `<strong>Nombre:</strong> ${nombre}`;
+        document.getElementById("pdfTelefono").innerHTML = `<strong>Teléfono:</strong> ${telefono}`;
+        document.getElementById("pdfCorreo").innerHTML = `<strong>Correo:</strong> ${correo}`;
+
+        document.getElementById("pdfFecha").innerHTML = `
+            <strong>Fecha de solicitud:</strong> ${fecha}<br>
+            <strong>Fecha preferente:</strong> ${fechaPref}<br>
+            <strong>Hora preferente:</strong> ${horaPref}
+        `;
+
+        let rows = "";
+
+        selectedTests.forEach((test, index) => {
+            const details = getStudyDetails(test);
+            const costo = formatCost(details.cost);
+
+            rows += `
+            <tr style="page-break-inside: avoid;">
+                <td style="padding:10px; border-bottom:1px solid #EAF0E4;">
+                    ${index + 1}. ${test}
+                </td>
+                <td style="padding:10px; text-align:right; border-bottom:1px solid #EAF0E4; font-weight:600; color:#00BAB2;">
+                    ${costo}
+                </td>
+            </tr>
+            `;
+        });
+
+        document.getElementById("pdfTableBody").innerHTML = rows;
+        document.getElementById("pdfTotal").innerText = "TOTAL: " + formatCost(calculateTotalCost());
+
+        // QR
+        const qrUrl = "https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=" +
+        encodeURIComponent("https://wa.me/525535239723?text=Hola,%20me%20interesa%20información%20sobre%20los%20estudios%20del%20catálogo%20de%20Laboratorio%20MAC%20Santa%20Fe.");
+
+        document.getElementById("pdfQR").src = qrUrl;
+
+        const element = document.getElementById("pdfTemplate");
+
+        const canvas = await html2canvas(element, {
+            scale: 2,
+            useCORS: true
+        });
+
+        const pdf = new jsPDF("p", "mm", "a4");
+
+        const pageWidth = 210;
+        const pageHeight = 297;
+
+        const marginTop = 8;
+        const marginBottom = 20;
+        const marginLeft = 10;
+
+        const usableWidth = pageWidth - (marginLeft * 2);
+        const usableHeight = pageHeight - marginTop - marginBottom;
+
+        const ratio = usableWidth / canvas.width;
+
+        const pageCanvas = document.createElement("canvas");
+        const pageCtx = pageCanvas.getContext("2d");
+
+        const pageHeightPx = usableHeight / ratio;
+
+        let y = 0;
+        let page = 0;
+
+        while (y < canvas.height) {
+
+            pageCanvas.width = canvas.width;
+            pageCanvas.height = pageHeightPx;
+
+            pageCtx.clearRect(0, 0, pageCanvas.width, pageCanvas.height);
+
+            pageCtx.drawImage(
+                canvas,
+                0, y,
+                canvas.width, pageHeightPx,
+                0, 0,
+                canvas.width, pageHeightPx
+            );
+
+            const imgDataPage = pageCanvas.toDataURL("image/png");
+
+            if (page > 0) pdf.addPage();
+
+            pdf.addImage(
+                imgDataPage,
+                "PNG",
+                marginLeft,
+                marginTop,
+                usableWidth,
+                pageHeightPx * ratio
+            );
+
+            y += pageHeightPx;
+            page++;
+        }
+
+        pdf.save("Cotizacion_MAC_Santa_Fe.pdf");
+    }
+
+
+
     // EmailJS
     const appointmentForm = document.getElementById("appointmentForm");
     const formMessage = document.getElementById("formMessage");
@@ -647,6 +833,7 @@
             try {
                 const response = await emailjs.send(serviceID, templateID, templateParams);
                 if (response.status === 200) {
+                    generarPDFCotizacion();
                     formMessage.innerHTML = '<div class="form-message success"><i class="fas fa-check-circle"></i> Solicitud enviada correctamente. En breve nos pondremos en contacto.</div>';
                     appointmentForm.reset();
                     selectedTests = [];

@@ -109,7 +109,13 @@
                         <label><i class="fas fa-comment"></i> Comentarios adicionales</label>
                         <textarea id="patientComments" rows="3" placeholder="Ej: indicaciones especiales, horario preferido, etc."></textarea>
                     </div>
-                    <button type="submit" id="sendRequestBtn" class="btn-submit"><i class="fas fa-paper-plane"></i> Enviar solicitud</button>
+                    <button type="submit" id="sendRequestBtn" class="btn-submit"><i class="fas fa-paper-plane"></i> Enviar solicitud</button> 
+
+
+                    <button type="button" id="downloadPdfBtn" class="btn-submit" style="background:#00BAB2;">
+                    <i class="fas fa-file-pdf"></i> Descargar cotización
+                    </button>
+
                 </form>
                 <div id="formMessage" class="form-message"></div>
             </div>
@@ -225,6 +231,10 @@
     </div>
 
     <!-- Scripts -->
+
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
     <script src="js/script.js"></script>
     <!-- EmailJS SDK -->
     <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
@@ -240,5 +250,77 @@
     <button id="backToTopBtn" class="back-to-top" aria-label="Volver arriba">
         <i class="fas fa-arrow-up"></i>
     </button>
+
+    <div id="pdfTemplate" style="position:absolute; left:-9999px; top:0; width:800px; background:white; padding:30px 25px 30px 25px; font-family:Inter;">
+
+    <!-- HEADER -->
+    <div style="display:flex; justify-content:space-between; align-items:center; border-bottom:3px solid #A3C329; padding-bottom:8px;">
+        
+        <div>
+        <h2 style="margin:0; color:#1A5A52; font-size:30px;">Laboratorio MAC Santa Fe</h2>
+        <p style="margin:0; font-size:18px; color:#6b8c80;">Cotización de estudios clínicos</p>
+        </div>
+
+        <img src="media/img/logo_mac_bueno.png" style="width:110px;">
+    </div>
+
+    <!-- CLIENTE -->
+    <div style="margin-top:15px; background:#F0F7E8; padding:12px; border-radius:8px; font-size:18px;">
+        <p id="pdfNombre" style="margin:3px 0;"></p>
+        <p id="pdfTelefono" style="margin:3px 0;"></p>
+        <p id="pdfCorreo" style="margin:3px 0;"></p>
+        <p id="pdfFecha" style="margin:3px 0;"></p>
+    </div>
+
+    <!-- TABLA -->
+    <h3 style="margin-top:18px; color:#00BAB2; font-size:20px;">Detalle de estudios</h3>
+
+    <table style="width:100%; border-collapse: collapse; margin-top:8px; font-size:18px;">
+        
+        <thead>
+        <tr style="background:#A3C329; color:#1E2A1C;">
+            <th style="padding:8px; text-align:left;">Estudio</th>
+            <th style="padding:8px; text-align:right;">Precio</th>
+        </tr>
+        </thead>
+
+        <tbody id="pdfTableBody"></tbody>
+
+    </table>
+
+    <!-- TOTAL -->
+    <div style="margin-top:15px; text-align:right;">
+        <h2 style="color:#1A5A52; font-size:20px;" id="pdfTotal"></h2>
+    </div>  
+
+    <!-- QR -->
+
+    <div style="margin-top:15px; display:flex; justify-content:space-between; align-items:center;">
+
+    <div>
+        <p style="font-size:18px; color:#1A5A52; font-weight:600; margin-bottom:4px;">
+        Contacto WhatsApp
+        </p>
+        <p style="font-size:16px; color:#6b8c80; margin:0;">
+        Escanea para atención directa
+        </p>
+    </div>
+
+    <img id="pdfQR" style="width:110px;">
+
+    </div>
+
+
+    <!-- FOOTER -->
+    <div style="margin-top:20px; border-top:1px solid #EAF0E4; padding-top:8px; font-size:16px; color:#577a6e;">
+        <p style="margin:2px 0;">📍 Av. Vasco de Quiroga 4973, Santa Fe, CDMX</p>
+        <p style="margin:2px 0;">📞 55-52-32-30-49</p>
+        <p style="margin:2px 0; font-weight:600;">Laboratorio Clínico MAC · Excelencia diagnóstica</p>
+    </div>
+
+    </div>
+
+
+
 </body>
 </html>
